@@ -1,4 +1,6 @@
-mydocs
-======
+My Documents
+============
 
-Half-finished works, vague ramblings, and gratuitous pedantry
+## Table of Contents
+
+Nothing here yet!
