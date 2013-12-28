@@ -10,18 +10,18 @@ In the transcription, effort has been made to represent the sounds of the langua
 
 The letters t, p, k, d, b, g, f, v, n, m, s, z, r, w, l, h, a, i, u, and o have their IPA values, unless used in one of the combinations listed below.
 
-e is an open-mid front vowel.
-y varies in pronunciation, but is usually close or near-close, always front or near-front, and often rounded. It may also be reduced to a schwa in many contexts. Its allophones are more or less in free variation; exceptions are noted in the pronunciation details for each language.
-th is a voiceless dental fricative.
-dh is a voiced dental fricative.
-c, k usually represent the same sound, IPA k. However, when palatalized, they have different pronunciations -- see below.
-kh is a voiceless velar fricative
-ch is a voiceless palatal fricative
-gh is a voiced palatal fricative
-ph is a voiceless bilabial fricative
-bh is a voiced bilabial fricative
-lh is a voiceless lateral fricative
-rh is a voiceless alveolar trill or flap
+* _e_ is an open-mid front vowel.
+* _y_ varies in pronunciation, but is usually close or near-close, always front or near-front, and often rounded. It may also be reduced to a schwa in many contexts. Its allophones are more or less in free variation; exceptions are noted in the pronunciation details for each language.
+* _th_ is a voiceless dental fricative.
+* _dh_ is a voiced dental fricative.
+* _c_, _k_ usually represent the same sound, IPA k. However, when palatalized, they have different pronunciations -- see below.
+* _kh_ is a voiceless velar fricative
+* _ch_ is a voiceless palatal fricative
+* _gh_ is a voiced palatal fricative
+* _ph_ is a voiceless bilabial fricative
+* _bh_ is a voiced bilabial fricative
+* _lh_ is a voiceless lateral fricative
+* _rh_ is a voiceless alveolar trill or flap
 
 #### Geminate Consonants
 
@@ -37,6 +37,7 @@ In most languages, a long vowel cannot form a diphthong with an adjacent vowel. 
 
 The palatalization sound change is as follows:
 
+```
 t  -> /tS/
 th -> /t_j/
 d  -> /dZ/
@@ -65,7 +66,7 @@ theán /t_ja:n/
 teáich  /tSa:cS/
 seír  /Si:r/
 Óisin /o:Sin/
-
+```
 #### Punctuation
 
 We use a hyphen to separate the elements of compounds, although the native script writes compounds as a single word.
@@ -92,11 +93,10 @@ The syntax is uniformly head-initial. Compounds, however, are head-final. Simple
 
 In Chomsky Normal Form, the syntax is:
 
-S -> P<sub>1</sub>
-P<sub>n</sub> -> P<sub>n</sub> CONJ P<sub>n</sub> for all n > 0
-P<sub>n</sub> -> W<sub>n</sub> P<sub>n-1</sub>* for all n > 0
-P<sub>n</sub> -> i P<sub>m</sub> for all n > 0, m > 0
-P<sub>0</sub> -> null
+* S -> P<sub>1</sub>
+* P<sub>n</sub> -> P<sub>n</sub> CONJ P<sub>n</sub> for all n > 0
+* P<sub>n</sub> -> W<sub>n</sub> P<sub>n+1</sub>* for all n > 0
+* P<sub>n</sub> -> i P<sub>m</sub> for all n > 0, m > 0
 
 where W<sub>n</sub> is a word in class *n*, and CONJ is any conjunction.
 
