@@ -10,26 +10,34 @@ In the transcription, effort has been made to represent the sounds of the langua
 
 The letters t, p, k, d, b, g, f, v, n, m, s, z, r, w, l, h, a, i, u, and o have their IPA values, unless used in one of the combinations listed below.
 
-e is an open-mid front vowel.
-y varies in pronunciation, but is usually close or near-close, always front or near-front, and often rounded. It may also be reduced to a schwa in many contexts. Its allophones are more or less in free variation; exceptions are noted in the pronunciation details for each language.
-th is a voiceless dental fricative.
-dh is a voiced dental fricative.
-c, k usually represent the same sound, IPA k. However, when palatalized, they have different pronunciations -- see below.
-kh is a voiceless velar fricative
-ch is a voiceless palatal fricative
-gh is a voiced palatal fricative
-ph is a voiceless bilabial fricative
-bh is a voiced bilabial fricative
-lh is a voiceless lateral fricative
-rh is a voiceless alveolar trill or flap
+* _e_ is an open-mid front vowel.
+* _y_ varies in pronunciation, but is usually close or near-close, always front or near-front, and often rounded. It may also be reduced to a schwa in many contexts. Its allophones are more or less in free variation; exceptions are noted in the pronunciation details for each language.
+* _th_ is a voiceless dental fricative.
+* _dh_ is a voiced dental fricative.
+* _c_, _k_ usually represent the same sound, IPA k. However, when palatalized, they have different pronunciations -- see below.
+* _kh_ is a voiceless velar fricative
+* _ch_ is a voiceless palatal fricative
+* _gh_ is a voiced palatal fricative
+* _ph_ is a voiceless bilabial fricative
+* _bh_ is a voiced bilabial fricative
+* _lh_ is a voiceless lateral fricative
+* _rh_ is a voiceless alveolar trill or flap
 
 #### Geminate Consonants
 
 The following doubled consonants represent geminates: tt, pp, kk, cc, dd, bb, gg, ff, vv, nn, mm, ss, zz, rr, ll
 
+#### Apostrophe
+
+The glottal stop, where phonemic, is indicated by an apostrophe ('). An apostrophe is also used to separate consonants that would otherwise form a digraph, e.g. _aeg'hel_ "sharp point". A capital H may be used in such combinations to differentiate e.g. gh /G/ from gH /gh/: _aegHel_.
+
+#### Hiatus
+
+When two short vowels that would otherwise form a diphthong appear in hiatus, the latter is marked with a diaeresis: _aër_ /'a.er/ "sea". A stress or length mark (see below) on a vowel also breaks up the diphthong: óan /'o:an/ "past".
+
 #### Vowel Length and Stress
 
-An acute accent marks a long vowel; a grave accent marks a stressed vowel when the stress is irregular. When a vowel is both long and irregularly stressed, the combination of the two accents is represented as a circumflex. In @609, long vowels are marked by a dot or vertical stroke above the letter, while stress is  represented (sporadically) by a similar mark below the letter. In most texts, however, irregular stress is not marked at all.
+An acute accent marks a long vowel; a grave accent marks a stressed vowel when the stress is irregular according to the stress rules of the particular language. When a vowel is both long and irregularly stressed, the combination of the two accents is represented as a circumflex. In @609, long vowels are marked by a dot or vertical stroke above the letter, while stress is  represented (sporadically) by a similar mark below the letter. In most texts, however, irregular stress is not marked at all.
 
 #### Palatalization
 
@@ -37,6 +45,7 @@ In most languages, a long vowel cannot form a diphthong with an adjacent vowel. 
 
 The palatalization sound change is as follows:
 
+```
 t  -> /tS/
 th -> /t_j/
 d  -> /dZ/
@@ -65,7 +74,7 @@ theán /t_ja:n/
 teáich  /tSa:cS/
 seír  /Si:r/
 Óisin /o:Sin/
-
+```
 #### Punctuation
 
 We use a hyphen to separate the elements of compounds, although the native script writes compounds as a single word.
@@ -92,19 +101,88 @@ The syntax is uniformly head-initial. Compounds, however, are head-final. Simple
 
 In Chomsky Normal Form, the syntax is:
 
-S -> P<sub>1</sub>
-P<sub>n</sub> -> P<sub>n</sub> CONJ P<sub>n</sub> for all n > 0
-P<sub>n</sub> -> W<sub>n</sub> P<sub>n-1</sub>* for all n > 0
-P<sub>n</sub> -> i P<sub>m</sub> for all n > 0, m > 0
-P<sub>0</sub> -> null
+* S -> P<sub>1</sub> 
+* P<sub>n</sub> -> P<sub>n</sub> CONJ P<sub>n</sub> for all n > 0
+* P<sub>n</sub> -> (P<sub>n+1</sub>) W<sub>n</sub> P<sub>n+1</sub>* for all n > 0
+* P<sub>n</sub> -> i P<sub>m</sub> for all n > 0, m > 0
 
 where W<sub>n</sub> is a word in class *n*, and CONJ is any conjunction.
 
-### Complications
+In English:
 
-Languages are complicated. While the syntax sketched above is sufficient to describe most of the corpus of the formal written language, the pragmatics of day-to-day usage introduce intricacies which are difficult to describe completely and correctly. One of the most common complications is topicalization, in which one of a verb's arguments is promoted to sentence-initial position, yielding SVO or OVS syntax rather than the usual VSO. In addition, the particle **i** is sometimes left out where the syntax would seem to require it. These details can be ignored in the syntax if we treat them as transformations of an underlying sentence structure, and it is easy to describe and reason about them that way. However, I have made an attempt at a more complete syntax that accounts for topicalization and i-deletion without resorting to transformations. That syntax appears in the appendix.
+* A sentence consists of a precedence-1 phrase.
+* For all natural numbers n:
+  * **Conjunction rule:** A precedence-n phrase may consist of two precedence-n phrases joined by a conjunction.
+  * **Modification rule:** A precedence-n phrase may consist of a precedence-n word optionally preceded by one precedence-(n+1) phrase and followed by any number of precedence-(n+1) phrases.
+  * **Precedence change rule:** A precedence-n phrase may consist of the particle _i_ followed by a phrase of any precedence.
 
-## Grammatical Sketch of @112
+## Grammatical Sketch of Early @100
+
+### Phonology
+
+Vowel phonemes were a, e, i, o, u (as described in the section on transcription). The vowels a and e were not written in the native script.
+
+Consonant phonemes were t, p, k, d, b, g, l, r, s, n, m, w. There was a high degree of allophony; the stops were often fricativized. It is likely that /g/ had [j] as an allophone, and /k/ was often [h].
+
+#### Stress
+
+Stress was, with few exceptions, on the first syllable of the word root or head of a compound.
+
+#### Phonotactics
+
+Final consonant clusters were restricted to the following:
+
+- [snpl]t
+- [nl]c
+
+### Morphology
+
+#### Plural Formation
+
+Plural affixes included _-i_ and _-(e)n_
+
+### Syntax
+
+Syntax roughly follows the general syntax described previously, although a sentence could consist of a phrase of any precedence, and pre-head dependents were not allowed.
+
+* S -> P<sub>n</sub> for all n > 0
+* P<sub>n</sub> -> P<sub>n</sub> CONJ P<sub>n</sub> for all n > 0
+* P<sub>n</sub> -> W<sub>n</sub> P<sub>n+1</sub>* for all n > 0
+* P<sub>n</sub> -> i P<sub>m</sub> for all n > 0, m > 0
+
+Topicalization of P<sub>1</sub> constituents could still be achieved by resolving S to P<sub>2</sub> and relativizing a P<sub>1</sub> clause with _i_.
+
+## Lexicon of Early @100
+
+- anno (2) year, circle
+- sidu (2) star
+- ecant (3) holy
+- ecan (1) hallow, make holy
+- domu (2) house
+- diést (2) finger
+- ecest (3) clean, pure
+- eces (1) cleanse, purify, make clean
+- 
+
+C=nltscdmgvbf
+V=eaiouy
+F=nlrs
+oo|ó
+aa|á
+ee|é
+ii|í
+yy|ý
+uu|ú
+CV
+V
+CVF
+VF
+
+## Grammar Sketch of @109
+
+
+
+## Grammar Sketch of @112
 
 
 
