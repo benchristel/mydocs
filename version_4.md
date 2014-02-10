@@ -4,36 +4,35 @@ A WIP boardgame
 
 ## Guiding Principles
 
-- Aesthetics: the physical components of the game should be pleasing; the game mechanics should lend themselves to an aesthetic presentation.
-- Narrative: each play of the game should tell a different story. Players should feel an emotional attachment to the characters and events in the game. They should reminisce about the game after it ends. They should be focused on resolving situations, not gaming mechanics. The character and player know the same set of things about the game world.
-- Challenge: the game should have strategic depth. No single strategy should dominate. Players should feel that creative plays, adaptation to circumstances, and long-term planning are rewarded.
-- Competition: victory or defeat should never be certain. Players should feel that the winner earned victory.
-- Abnegation: The barrier to entry should be low; it should be possible to play (though probably not to win) with a minimum of mental effort. Players should always know what their options are; they should never have to choose between more than a handful of options. It should be obvious from glancing at the board what the gamestate is. The load on players' working memory should be small. N.B. this does not mean the game has to be easy—e.g. Go actually excels at abnegation by this metric, since you can "play" by just playing on any open intersection at random.
-- Social interaction: players should be engaged during others' turns. Negotiation should be vital to the game.
-- Social cohesion: it should be conceivable that gaming groups would form primarily to play this game.
-- Brevity: The game should not outstay its welcome. Playtime should be adjustable by slight tweaks to the rules, goal states, or initial conditions. 20-30 minutes per player is probably about right.
+- **Aesthetics:** the physical components of the game should be pleasing; the game mechanics should lend themselves to an aesthetic presentation.
+- **Narrative:** each play of the game should tell a different story. Players should feel an emotional attachment to the characters and events in the game. They should reminisce about the game after it ends. They should be focused on resolving situations, not gaming mechanics. The character and player know the same set of things about the game world.
+- **Challenge:** the game should have strategic depth. No single strategy should dominate. Players should feel that creative plays, adaptation to circumstances, and long-term planning are rewarded.
+- **Competition:** victory or defeat should never be certain. Players should feel that the winner earned victory.
+- **Abnegation:** The barrier to entry should be low; it should be possible to play (though probably not to win) with a minimum of mental effort. Players should always know what their options are; they should never have to choose between more than a handful of options. It should be obvious from glancing at the board what the gamestate is. The load on players' working memory should be small. N.B. this does not mean the game has to be easy—e.g. Go actually excels at abnegation by this metric, since you can "play" by just playing on any open intersection at random.
+- **Social interaction:** players should be engaged during others' turns. Negotiation should be vital to the game.
+- **Social cohesion:** it should be conceivable that gaming groups would form primarily to play this game.
+- **Brevity:** The game should not outstay its welcome. Playtime should be adjustable by slight tweaks to the rules, goal states, or initial conditions. 20-30 minutes per player is probably about right.
 
 ## User Stories
 
-As a Player, I want to have cooperative and competitive goals that conflict, so I can bluff and negotiate with the other players.
-
-As a Player, I want to play a game that tells a unique and exciting story each time, so I can enjoy replaying the game and reminiscing about past plays.
-
-As a Player, I want strategic and tactical decision points that keep me engaged without being overwhelming.
-
-As a Spectator, I want dramatic irony, so the game is entertaining and suspenseful.
+- As a Player,
+  - I want to have cooperative and competitive goals that conflict, so I can bluff and negotiate with the other players.
+  - I want to play a game that tells a unique and exciting story each time, so I can enjoy replaying the game and reminiscing about past plays.
+  - I want managable strategic and tactical decision points, so I am engaged but not overwhelmed.
+- As a Spectator, I want dramatic irony, so the game is entertaining and suspenseful.
 
 ## Thematic Concepts
 
 - The game spans several generations. Young player characters grow up, receive training, choose a class, and eventually succeed their mentors. Characters can grow old and retire. Death is permanent.
-
 - Some concept of faction, character class, magic school, or alignment
-
 - Wandering monsters or other NPC encounters that can involve combat, trade, or diplomacy.
 
 ## Mechanical Concepts
 
 - **Everyone is a DM:** Players trade off the responsibility of making life interesting for each other. Maybe there's some bidding mechanic that lets players put a price on control of the NPCs in each encounter. Conflict and negotiation should arise from the players' conflicting goals, not from some dumb AI built into the game.
+- **Levels are Loot:** Spells, abilities and items are all treasure that you can gain from encounters. The more powerful abilities build upon weaker ones, so a concept of character class emerges. 
+- **Options are Health:** [When you're out of ointment, you're out of time](http://xkcd.com/68/). Having options means you're alive; if you have no options, you're dead. The things you can do are represented by the cards in your deck. You die iff your deck runs out.
+- **Basic Items are Boring:** No one wants to kill a bunch of monsters and be rewarded with a "sword". That's boring. Instead, you get bonuses that you can apply to certain weapon types. This represents finding either enchanted scrolls that you can use to buff one of your items, or finding already-enchanted or finely-crafted weapons. You don't have to actually find or buy a "sword" or "bow" card to use those weapon types -- it's assumed that you can materialize such things out of the ether or whatever. If you die, your enchantment-sets can be picked up by anyone who finds your corpse. I think this is ultimately more elegant than having a mechanic that somehow binds enchantment cards to weapon cards or something.
 
 ## Empirical Metrics
 
@@ -43,6 +42,15 @@ As a Spectator, I want dramatic irony, so the game is entertaining and suspensef
 - time taken for rules explanation
 - time difference between first playthrough w/ new players and a typical playthrough with experienced players
 - Subjective ratings by playtesters
+- Sources of conflict that occur in Star Wars that can also occur in Version 4.
+  - A wants an alliance with B, but B does not want to become a thrall of A.
+  - A breaks an alliance with B by entering into an alliance with C that B does not support.
+  - A trounces B in a minor skirmish, prompting rage and retaliation from B.
+  - A is unwilling to trade with B because of B's aid to C, an enemy of A's ally D.
+  - A is unable to deliver tribute to B, but B thinks A is betraying him.
+  - A stole from B and B found out about it.
+  - A wants something that belongs to B.
+  - A seeks resources or weapons from B, who sabotages A by giving intelligence to C, an enemy of A.
 
 ## Theoretical Metrics
 
@@ -94,4 +102,17 @@ An *encounter* consists of the following phases:
 
 ### Combat
 
-Oh geez. I dunno.
+Combat can occur between any number of parties, but usually there are just two. Most frequently, one side is a PC and the other is a DM player controlling NPCs, but PvP is also possible.
+
+In each round of combat, the players choose one action card from their hand and reveal their chosen cards simultaneously. The cards are resolved in order of initiative, which may be affected by the card's Speed stat, the PCs' stats, or environmental effects. Resolving a card consists of designating targets if the card requires it, and following the instructions on the card. This continues until all but one of the players have been defeated (have no more cards) or have retreated. 
+
+Some more specific ideas for combat mechanics:
+
+- Players do not have a personal deck or library distinct from their hand and discard. Newly-acquired cards go into your hand and usually move to the discard when played.
+- All cards in the discard are visible to all players. Many effects allow players to move a card of their choice from their discard into their hand.
+- The most basic cards, *cantrips*, let you take a card from your discard into your hand as part of their effect. This allows you to recycle cantrips indefinitely -- or discard them for the one-time benefit of recovering a more powerful ability from your discard.
+- Cards can have effects that last for multiple rounds. These include enchantments and units.
+- As noted above, cards in your hand represent both your abilities and your health or hit points. Attack cards force your opponents to discard one or more cards. There's a lot of opportunity for subtle variations on this idea:
+  - Basic attack cards let the attacker draw one card (blindly) from the target's hand and discard it. But if the card drawn is an armor or shield card, it's returned to the target's hand and the attack has no effect.
+  - Special attacks can do varying amounts of damage depending on what cards the target is holding. For example, if you hit someone with a fire attack, you can continue taking cards from their hand as long as the last card drawn is a flammable item.
+  - Cantrips are a sort of stamina bar -- you can keep on casting them forever, or you can burn through them and hope that the more powerful spells you gain by doing so will be enough to take your opponents down.
