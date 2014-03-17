@@ -116,3 +116,27 @@ Some more specific ideas for combat mechanics:
   - Basic attack cards let the attacker draw one card (blindly) from the target's hand and discard it. But if the card drawn is an armor or shield card, it's returned to the target's hand and the attack has no effect.
   - Special attacks can do varying amounts of damage depending on what cards the target is holding. For example, if you hit someone with a fire attack, you can continue taking cards from their hand as long as the last card drawn is a flammable item.
   - Cantrips are a sort of stamina bar -- you can keep on casting them forever, or you can burn through them and hope that the more powerful spells you gain by doing so will be enough to take your opponents down.
+
+### Movement
+
+To keep the game pacey, players shouldn't spend turns just moving around the board when there's nothing for them to do on the way. The following movement rules seem reasonable:
+
+- PCs may move through any number of hexes that have no GP/encounter tokens on them.
+- PCs may interact with one non-encounter map location at any point during their movement phase.
+- An encounter ends the movement phase.
+
+### Deckbuilding
+
+A reasonable starting deck could be 5 or 6 cards: a few cantrips and a few more powerful abilities. After each encounter, the PC levels up by drafting a new ability card. All characters have the following cards, which are returned to the player's hand after use and cannot be discarded except by a few special attacks and effects:
+
+- Basic melee attack: deal damage to one target according to your stats, modifers, and melee weapons.
+- Basic ranged attack: deal damage to one target according to your stats, modifiers, and ranged weapons.
+- Basic command unit: activate an action of a permanent that you control. If you played this card during the normal action phase of combat, and at least one opponent played an action other than Command Unit, you may play and resolve another action phase after all cards from the normal action phase have been resolved. You may not play this card again in the second action phase.
+
+## MVP
+
+With two players, many of the mechanics I've planned (e.g. bidding for DM rights) reduce to trivial cases. I think MVP is a three-player game.
+
+With 6 terrain types (fields, mountain, swamp, lava, forest, ocean), and a strict adjacency matrix (fields-swamp-forest-mountain-lava-fields, all may be adjacent to ocean), there are 5*3*3 = 45 possible sequences of 3 adjacent vertices. To ensure that a matching terrain tile is usually available to expand the map, we probably need about 15 to 20 tiles. To simplify the encounter book, we can have one encounter scenario per terrain type. Since the MVP game is only 3 players, we need to build out and balance 3 factions. I arbitrarily choose Green, Red, and Black, since those seem like the most versatile and fun (powerful units, damage spells, and weird role-reversals/necromancy, respectively).
+
+We also need to consider ability cards and item modifiers. I think the set of modifiers available can be very basic to start; we just need a few modifiers that stack and a few that replace other modsets, to make sure players have interesting decisions about which mods to use. 5 or 6 different ones should be enough. I'm not too concerned about replayability for the MVP, so the number of ability cards for each faction can be about the maximum number possible for a PC build. Maybe start with 10 per faction and make more as needed... or just institute a level cap. There should also be some surplus levels to build future generations of heroes...
