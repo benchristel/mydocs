@@ -68,7 +68,7 @@ Mithrandir = Gandalf;
 document.write(Mithrandir)
 ```
 
-Note that the above is significantly different from:
+The above is subtly but significantly different from:
 
 ```javascript
 Gandalf = "<:)~";
@@ -219,6 +219,80 @@ while(!gameOver) {
 }
 ```
 
+### Rocket Simulator
+
+
+```javascript
+
+rocket = {
+	fuel: 10000.0,
+	mass: 7500.0,
+	thrust: 10000.0,
+	fuelBurnRate: 2.0,
+	dragCoefficient: 0.85,
+    altitude: 0.0,
+    velocity: 0.0,
+
+    getTotalMass: function () {
+        return this.mass + this.fuel;
+    },
+
+    useFuel: function (amount) {
+        this.fuel = this.fuel - amount;
+        if (this.isOutOfFuel()) {
+        	this.fuel = 0;
+        }
+    },
+
+    isOutOfFuel: function () {
+    	return this.fuel <= 0.0;
+    },
+
+    fireEngines: function () {
+        if (this.isOutOfFuel()) {
+        	return;
+        }
+
+    	this.useFuel(fuelBurnRate);
+    	this.applyForce(this.thrust);
+    },
+
+    accelerate: function (deltaV) {
+        this.velocity = this.velocity + deltaV;
+    },
+
+    applyForce: function (force) {
+    	this.accelerate(force / this.getTotalMass());
+    },
+
+    timeStep: function () {
+    	this.fireEngines();
+
+    	// force of gravity
+        applyForce(-9.8 * this.getTotalMass());
+
+        // force of drag
+        applyForce(-this.velocity * this.dragCoefficient);
+
+        // move the rocket
+        this.altitude = this.altitude + this.velocity;
+
+        // don't let the rocket go below the ground
+        if (this.altitude < 0) {
+        	this.altitude = 0;
+        }
+    }
+}
+
+while (!rocket.isOutOfFuel()) {
+    rocket.timeStep();
+    console.log("Upward velocity: " + rocket.velocity + " m/s");
+    console.log("Altitude: " + rocket.altitude + " meters");
+    console.log("Fuel remaining: " + rocket.fuel + " kg");
+}
+
+```
+
 
 Why do we care, though? After all, it takes more keystrokes to type `document.write(favoriteColor);` than it does to type `document.write("blue");`. But names are important. Programming, and using computers in general, would be horribly difficult if we didn't have them. Here are some reasons why:
 
@@ -248,3 +322,224 @@ cupsOfCoffeeConsumedToday;
 // => 1
 ```
 
+## Formulæ
+
+### Do math
+
+#### Compute and name a value
+
+```javascript
+x = 0.1 * (1 + 2) / 3.5;
+y = 1 - 2;
+z = x + y;
+```
+
+#### Get the remainder of integer division
+
+```javascript
+remainder = 8 % 3 // % is called the modulo operator
+```
+
+#### Change a named value
+
+```javascript
+x = 0;
+x = x + 1; // after this line, the value of x is 1
+x += 1;    // x += y is shorthand for x = x + y
+x++;       // x++ is shorthand for x = x + 1
+x--;       // similarly, x-- is shorthand for x = x - 1
+```
+
+#### Use mathematical functions and constants
+
+```javascript
+Math.sqrt(2);
+Math.sin(Math.PI / 3);
+Math.pow(Math.E, 3);   // compute e^3
+Math.exp(3);           // shorthand for the above
+Math.round(2.519);     // round a number to the nearest integer
+Math.ceil(2.1);        // round up
+Math.floor(2.7);       // round down
+Math.abs(-1);          // get the absolute value of a number
+```
+
+### Manipulate text
+
+#### Create and name a string of text
+
+```javascript
+catchphrase = "Most excellent!";
+// you can use single or double quotes
+quotation = '"The HORSE is a noble animal" --Randall Munroe';
+```
+
+#### Concatenate multiple strings into one
+
+```javascript
+quotation = '"The HORSE is a noble animal"';
+author = "Randall Munroe";
+cited_quotation = quotation + " --" + author;
+```
+
+#### Convert a number to a string
+
+```javascript
+String(8);
+"" + 8; // This relies on the fact that numbers and other objects are converted
+        // automatically to strings if you concatenate them with a string.
+```
+
+#### Check if one string contains another
+
+```javascript
+haystack = "Most excellent!";
+needle = "cell";
+if (haystack.indexOf(needle) >= 0) {
+    // code here will only run if "Most excellent!" contains "cell"
+}
+// `indexOf` returns the number of characters in `haystack` before the first 
+// occurrence of `needle`. If `needle` isn't found, it returns -1.
+```
+
+### Create user interfaces
+
+#### Pop up an alert box on the user's screen
+
+```javascript
+alert("All your base are belong to us");
+```
+
+### Keep a list of items
+
+```javascript
+emptyList = [];
+colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+```
+
+#### Write a list with calligraphic comma-first style
+
+```javascript
+colors = 
+    [ 'red'
+    , 'orange'
+    , 'yellow'
+    , 'green'
+    , 'blue'
+    , 'indigo'
+    , 'violet'
+    ];
+```
+
+#### Do something to every item in an Array (list)
+
+```javascript
+colors = ['red', 'blue', 'green'];
+
+for (var i = 0; i < colors.length; i++) {
+    document.write(colors[i]);
+}
+```
+
+### Bundle related data into an object
+
+```javascript
+anObjectWithNoProperties = {};
+
+player = {name: 'Hisiel', hitPoints: 10, inventory: 'bag of holding'};
+
+monster = {
+    name: 'dragon',
+    hitPoints: 100,
+    inventory: 'shiny treasures'
+};
+
+monster.name; // => 'dragon'
+player.hitPoints; // => 10
+```
+
+### Write an object with calligraphic comma-first style
+
+```javascript
+monster =
+    { name:      'dragon'
+    , hitPoints: 100
+    , attack:    10
+    , defense:   25
+    , inventory: 'shiny treasures'
+    }
+```
+
+### Name frequently-used commands and operations
+
+#### Name a calculation
+
+```javascript
+areaOfCircle = function(radius) {
+    return Math.PI * radius * radius;
+};
+```
+
+#### Name a command
+
+```javascript
+
+```
+
+#### Create an object spawner
+
+```javascript
+spawnMonster = function() {
+    var monster =
+        { name: 'default monster'
+        , attack:    1
+        , defense:   1
+        , hitPoints: 10
+        , level:     1
+        , specialAbilities: []
+        };
+    return monster;
+}
+```
+
+#### Create specialized object spawners
+
+```javascript
+spawnZombie = function() {
+    var monster = spawnMonster();
+    monster.name = 'Zombie';
+    monster.specialAbilities = ['eatBrains'];
+    monster.attack = 3;
+    return monster;
+}
+
+spawnSuperZombie = function() {
+    var zombie = spawnZombie();
+    zombie.level = 9999;
+    return zombie;
+}
+```
+
+#### Give objects their own behaviors
+
+```javascript
+rearrangeThingsOnDesk = function() {
+    alert(this.name + " rearranges things on the desk");
+}
+
+tapOnComputerKeyboard = function() {
+    alert(this.name + " taps on the computer keyboard");
+}
+
+Ben = 
+    { name:   'Ben'
+    , fidget: tapOnComputerKeyboard
+    }
+
+Alex =
+    { name:   'Alex'
+    , fidget: rearrangeThingsOnDesk
+    }
+
+Ben.fidget();
+Alex.fidget();
+```

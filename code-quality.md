@@ -22,15 +22,16 @@ TOC:
   - Composition vs. Inheritance
   - Self-documenting assertions
   - Tests as documentation
-- Avoid Spaghetti Code
+- Design for Change (even though YAGNI)
+  - Avoid Spaghetti Code
+  - Flexible Parameters
+  - Return Objects
   - Use and maintain clean abstractions
-  - SRP
+  - SRP 
 - Avoid Spaghetti Teams
   - Maintain a clean interface between dev and product
   - If PMs are describing feature requirements in terms of your database schema, you are on the way to destruction.
-- Design for Change (even though YAGNI)
-  - Flexible Parameters
-  - Return Objects
+
 
 
 ## What is code quality?
@@ -43,20 +44,11 @@ The cost of change can be affected by many factors:
 - The presence of tests that exercise the behaviors of the existing code and demonstrate some degree of correctness
 - The risk (of introducing bugs, losing data, or breaching security) associated with the change
 - The amount of time that must be spent for the developers to understand what needs to change
+- The amount of time that must be spent to actually make the change
 - The amount of time required to add new tests or update existing ones to match the new specification
 - The programming language and development tools used for the project
 
-> Whoa! Bet you weren't expecting that last one. But if you define "high-quality" as "easy and safe to change", it's clear that the choice of programming language has a big effect on code quality. In general, languages that offer higher levels of abstraction lend themselves to higher code quality, because the computer does more of the heavy lifing for you using thoroughly-tested (and in some cases, provably-correct) subsystems, such as interpreters, compilers, and query planners. Abstraction also leads to code that more closely mirrors the language we use to talk about it. It is often easier to understand the purpose of code written at a high level of abstraction.
-
 Note that _performance_ is not one of the metrics. Performance is orthogonal to code quality. Good code can be fast, slow, efficient, or memory-leaky, and so can bad code. The difference is that if your code is high-quality, it's easier to identify and fix performance bottlenecks. It's true that performance tuning can lower the quality of code by impeding readability, but if you start from a well-factorized codebase, optimization changes should be small and isolated.
-
-### It's not just about code
-
-> From the metrics listed above, we can see that "code quality" can actually be affected by things other than the code itself. For example:
->
-> - Tests affect "code quality"
-> - Documentation affect "code quality"
-> - Communication habits of the dev team affect "code quality"
 
 ## Why is code quality important?
 
@@ -68,9 +60,84 @@ In addition to lowering the cost of change, we often want to lower the unpredict
 
 ## How do we create and maintain code quality?
 
-Okay, enough theory. How do we actually *write* high-quality code?
+Okay, enough theory. How do we actually *write* high-quality code? Let's rephrase the code-quality metrics as goals:
+
+- Demonstrate that the code is correct
+- Reduce the risk of bugs, data loss, or security breaches caused by change
+- Make it easy for someone else to understand your code
+- Make it easy for someone else to change your code once they understand what it does
+- Make it easy to keep documentation in sync with code
+- Choose languages and tools that facilitate your work
+
+Many of the techniques for maintaining code quality target more than one of these goals, so the rest of this section will be structured as a list of techniques. I'll describe each one, and point out which goals it helps us reach.
+
+Specific examples in this section will be geared towards web development with Ruby on Rails, since that's what I'm most familiar with.
+
+### Use Test-Driven Development
+
+Test-Driven Development (TDD) has a pretty specific methodology for how software should be developed, but the core of it is that automated tests should be written before the code they're supposed to test.
+
+At first glance, this seems absurd. How can you test something that doesn't exist yet? But it's actually a very powerful strategy that emerges from a somewhat counterintuitive philosophy about why tests are valuable.
+
+You could view automated tests as a way of demonstrating that "finished" software is indeed behaving correctly and ready to ship. However, their value for that purpose is limited. Passing tests will continue to pass as long as the code they exercise does not change. If you write tests just before shipping, most of them will pass. Your tests might uncover one or two bugs, but mostly they're just there to prove to your code reviewer or manager what you've already proven to yourself through manual tests and debugging.
+
+If you instead write the tests before the implementation, you spend the same amount of time and effort on them, but the benefit is much greater. You no longer have to do so much manual testing and debugging before sending your code off for review.
+
+There are other benefits to writing tests first. Believe it or not, tests have as many bugs as the code they're testing, and if you only test when the code is complete, it's possible to write a test that passes but doesn't assert the behavior you want. TDD protects you from that via the _red-green-refactor_ cycle. The idea is that if you write a test for a feature you don't have yet, it should fail (red). If it *doesn't* fail, your test is borked. Then, when you implement the feature, the test should pass. If it doesn't, either your implementation or your test is wrong. When you get your tests to pass (green), you can then refactor both your tests and your implementation, running your tests at each refactoring step. This gives you assurance that the refactoring is correct.
+
+The cost of refactoring is superlinear in the amount of code being refactored<sup>[citation needed]</sup>. Refactoring only after all the code is written is therefore suboptimal; it's much better to refactor as you're writing the code. The only sane way to do that is to keep your code covered by tests as you write it.
+
+Having any tests at all helps you toward the following goals:
+
+- Demonstrate that the code is correct
+- Reduce the risk of bugs, data loss, or security breaches caused by change
+
+Using TDD helps you toward these goals:
+
+- Make it easy to understand your code
+- Make it easy to keep documentation in sync with code
+
+I use RSpec to 
+
+### TDD Tech Tree
+
+Here's a tech-tree-like diagram showing how TDD is a prerequisite for all that's good in the world:
+
+```
+        +--> Assurance of correctness                      +-> Better emergency tooling
+       /                                                  /
+      +----------------------+--> Loosely-Coupled Design +---> Ease of making changes
+     /                      /
+TDD +---> Safe Refactoring +--> Lower Risk
+     \
+      +-> Self-Documentation +---> Ease of communication
+                              \
+                               +-> Ease of doc maintainance
+```
+
+TDD encourages loosely coupled design by forcing you to create components that can be unit tested. You still have to think about your design, of course, but unit tests will point out when a class sends too many different messages because you'll have to stub all of those outgoing calls.
+
+Loosely-coupled design, in turn, gives you better tools when you need to respond to an emergency. There's less need to write ad-hoc database queries or cleanup scripts -- you can just copy-paste from your production code. Loosely-coupled code can often be reused for monitoring, as well.
+
+Loosely-coupled components are easier to change.
+
+TDD enables safe refactoring by covering your behavior in tests. Assuming you don't do silly things like test (or stub) private methods, refactoring within a class should not require any change in tests, and refactoring an entire system will only require changes to unit tests. If your refactor breaks existing behavior, the tests will tell you.
+
+TDD gives you executable documentation for your code. Even if your code is totally opaque (and if you use TDD, it probably won't be), good tests will tell maintainers what it does and why.
+
+Self-documenting code makes it easier for developers to communicate.
+
+Self-documenting code means less time spent maintaining separate documentation.
+
+### Monitor your services
+
+Logging to a flat file and then grepping that file when you have a problem is minimally useful. You should have some sort of tooling to make it easy to search logfiles, and perhaps visualize the data. Splunk provides great tools for this.
 
 
+
+Using TDD 
+
+###
 
 - **Use Test-Driven Development.** TDD, and its cousin, Behavior-Driven Development, can be used to ensure that code is easy to test, understand, and change.
 - **Write Self-Documenting Code.** Code is easiest to change when it clearly expresses both what it does and why. Such code may require little or no additional documentation, which lowers maintenance costs as there is less documentation to be kept in sync with the code.
