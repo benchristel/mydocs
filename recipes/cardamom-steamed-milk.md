@@ -5,7 +5,7 @@ Invented by my dear mommy.
 ## Ingredients
 
 - 1 cup milk
-- 1/4 tsp ground cardamom
+- 1/8 tsp ground cardamom
 - 1/4 tsp vanilla extract
 - 1/2 tsp sugar
 
