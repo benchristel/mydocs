@@ -1,17 +1,32 @@
-# Metascroll of the Apprentice
+# The Zero<sup>th</sup> Scroll: Boot Sector
 
-_Scrolls of the Apprentice_ is a project that I started in order to introduce programming to young people with an aptitude for the subject but no interest in it, or an interest in it but no aptitude.
+> Please note: This book is a work of fiction, and its representation of the history of computer science is somewhat facetious. The reader is encouraged to read the linked articles if a less fanciful portrayal of persons and events is desired. Dates are cited as B.U.E. (Before Unix Epoch) or G.U.E. (Great Unix Epoch). Any similarity to dates appearing in any games published by Infocom or Activision is purely coincidental. To convert from G.U.E. to Gregorian calendar years, add 1970.
+>
+> With that out of the way...
 
-The motivational strategy uses a combination of humanist mysticism and video games. The pedagogical strategy involves a steady learning curve with plenty of examples, and spoiler boxes that give more in-depth information for students who really want to know why something works the way it does. These scrolls are written in Github-Flavored Markdown, which doesn't support spoiler boxes directly. I have used block quotes in place of spoiler boxes in the Markdown version of the text.
+## Disclaimer and Terms of Use
 
-## Why _Scrolls_?
+> By reading these scrolls, you consent to have your brainstate altered. If you do not agree to these terms, please uninstall your web browser and incinerate your computer immediately.
+>
+> I, the author of this work, claim no affiliation with anything or anyone, and the opinions presented here are either my own, someone else's, or no one's. You, the reader, are free to do whatever you like with the contents of this work, as long as I don't find out about it.
 
-Anything with a _scrollbar_ can (should?) be called a _scroll_.
+## How to Read These Scrolls
 
-It also fits well with the wizardry-flavored text.
+First, a bit of background: the programming language used in this book is called JavaScript. It's used in pretty much every website in the universe. Every modern web browser (Firefox, Chrome, Internet Explorer, Safari, Opera) can understand some version of this language, which means websites work more or less the same on every computer and mobile device. Because it's built into every web browser, JavaScript is one of the easiest languages to get started in.
 
-## Why Wizardry?
+If you're using Chrome, you can start programming in JavaScript right now by selecting the **`View > Developer > JavaScript Console`** menu, or by pressing **`option + command + J`** (on a Mac) TODO: instructions for other browsers and OSes. This will bring up a control panel at the bottom of your screen that looks like this:
 
-As a kid in school, I felt (and still feel) that many difficult subjects could be made less onerous if the hard bits were presented as "we don't know how to make this easy yet; maybe you can do better". I also believe that one of the things that turns young people away from math is not that the concepts are hard, but that the notation is terrifying. I have no problem pushing Ruby enumerables through all manner of transformations, but I still find parsing a page of sigma notation laborious (this is probably a matter of relative familiarity rather than anything wrong with sigma notation, but I think the more pronounceable interface of Ruby does make it easier to grasp). I want to empower students to invent their own notations and abstractions by telling them early and often that language is arbitrary and I don't have all the answers. This isn't just a pedagogical concern; it's central to the material I'm trying to teach. When mediocre programmers meet stupefying notation, they study it carefully and struggle through; when great programmers meet stupifying notation, they struggle only until they can shove the mess behind an interface and forget about it.
+TODO: image
 
-Oh, you asked about wizards? I like wizards.
+You can dismiss the panel with the `X` button in the top-right corner.
+
+This panel, the JavaScript Console, is our window into the mechanisms that underlie every website. From here, we can make the browser do anything—display text, videos, and images, play games and music, or resize itself and jump around the screen (that last one was popular back in the '20s and '30s G.U.E).
+
+We can tell the browser to do something by typing a command into the console and pressing the **`enter`** key. For example, this command makes a message box pop up on the screen:
+
+```javascript
+alert("My name is Ozymandias, King of Kings; look on my works, ye mighty, and despair!");
+```
+
+You can put whatever text you want in place of the Ozymandias line; as long as it's wrapped in quotes, it should work just fine.
+

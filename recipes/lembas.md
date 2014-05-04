@@ -2,6 +2,8 @@
 
 Source: <cite>[yclept](http://everything2.com/title/lembas)</cite>. Reproduced here in case the source vanishes in the tectonic motions of the Web.
 
+Makes 16 wafers.
+
 ## Ingredients
 - 1.5 c. (150 g) white flour
 - 1.5 c. (180 g) blanched almonds
@@ -15,8 +17,6 @@ Source: <cite>[yclept](http://everything2.com/title/lembas)</cite>. Reproduced h
 - 1/4 tsp ground cardamom or finely grated lemon zest
 
 ## Procedure
-
-Makes 16 wafers.
 
 Preheat the oven to 400°F.
 

@@ -33,6 +33,24 @@ There are two reasons to use functions. You can use them for their effects, as y
 
 When you use `document.write`, you'll notice that the console echoes `undefined` back to you. 
 
+## Magic: Its Destruction and Creation
+
+When people use the word <span style="font-variant:small-caps">magic</span>, they are usually talking about a mechanism whose behavior they can describe but whose inner workings they cannot or do not care to explain. This definition applies equally well to stage magic (in which magicians seem to perform impossible feats by using techniques unknown to their audience), to fictional wizardry (which produces consistent effects, though its underlying mechanism is not usually explained), and to modern technology (which most people use but no one fully understands).
+
+The two tasks of programming are the destruction and creation of magic.
+
+To become a programmer, you must first break some of the illusions that other programmers have set up for you—illusions that you have been relying on for as long as you have been using computers. You will find out, for example, how computers communicate over the internet, and how all data from text to images to video are really just very long sequences of numbers. If computers seemed magical to you before, this will destroy the magic.
+
+And then you will stitch the illusion back up, and restore it to life, because a good programmer, like a good surgeon, understands things without breaking them. The reason for this is that programmers can only be effective if, in their day-to-day work, they treat most of a computer's mechanisms as magic. At its heart, the computer you're using now is just an exquisite crystal of silicon over which a billion tiny voltages dance and fluctuate a billion times a second. You would have to be mad to program something like a web browser by manipulating these voltages directly. If you were not certifiably insane at the beginning of such a project, you would be by the end of it. But because of the magic that other programmers before us have woven, we can get away with imagining that a computer is something else—a universe where we can pluck numbers out of the ether and give them names, where text is text and images are images. And before this book is over, you too will be creating systems that can be used by people who don't understand how they work. 
+
+## Aletheiomancy
+
+You can apply your reasoning faculties to write a program, predict what it will do, and then run it and see it carry out your intent. I can think of no more convincing argument that truth is knowable, and that reason is valuable, than this.
+
+### High Magic, Middle Magic, Deep Magic
+
+## Names and Things
+
 ## The Power of Names
 
 To name a thing is to gain control over it. We can name things in Javascript using the equals sign, `=`.
@@ -93,6 +111,17 @@ kingOfGondor = "Eldarion"
 ```
 
 One name can't refer to two things at once, so transferring a name to a new object removes it from the old object. If an object has no names, it is lost forever.
+
+## The Virtues of Code
+
+1. Code should be simple. It should be easy to see what a piece of code does, and why, without running it.
+2. Code should be correct.
+3. Code should be easy to change. It should be easy to add new features
+4. Code should be predictable. If you run a piece of code that claims to do something, it should do that thing and nothing else. It should not give you strange errors unrelated to its function, or return a value other than what it claims to return.
+5. Code should be efficient. 
+6. Code should be secure. It should be _very difficult_ to use it for malicious purposes. What exactly _very difficult_ means is explained below.
+
+## The Virtues of Programmers
 
 ## Boring Game
 
@@ -216,6 +245,32 @@ while(!gameOver) {
 		gameOver = true;
 		alert("You win!");
 	}
+}
+```
+
+## Advanced Mastermind
+
+```javascript
+numberCorrect = function(guess, secretCode) {
+    correct = 0;
+    for (i = 0; i < secretCode.length; i = i + 1) {
+        if (guess[i] == secretCode[i]) {
+            correct += 1;
+        }
+    }
+    return correct;
+}
+
+numberCorrectInWrongPlace = function(guess, secretCode) {
+    correct = 0;
+    for (i = 0; i < secretCode.length; i = i + 1) {
+        for (k = 0; k < secretCode.length; k = k + 1) {
+            if (i !== k && guess[i] === secretCode[k]) {
+                correct += 1;
+            }
+        }
+    }
+    return correct;
 }
 ```
 
@@ -542,4 +597,198 @@ Alex =
 
 Ben.fidget();
 Alex.fidget();
+```
+
+# Patterns Used in Thrax
+
+## Helper Functions
+
+Purpose: Avoid copy-pasting code by creating functions to automate common tasks.
+
+## Instead of this:
+
+```javascript
+function attack(creature, damage) {
+    if (creature.health !== undefined && damage !== undefined) {
+        creature.health = creature.health - damage;
+    }
+};
+```
+
+## You can do this:
+
+```javascript
+var defined = function(value) {
+    return value !== undefined;
+}
+
+var attack = function(creature, damage) {
+    if (defined(creature.health) && defined(damage)) {
+        creature.health = creature.health - damage;
+    }
+};
+```
+
+## Spawner
+
+Purpose: creates an object with default properties and methods.
+Naming convention: `spawn*`, `create*`, `make*`, `build*`
+
+### Works like this:
+
+```javascript
+var createPotion = function() {
+    var potion = {};
+
+    potion.usedUp = false;
+    potion.useOn = function(target) {
+        if (potion.usedUp === false) {
+            potion.affect(target);
+            potion.usedUp = true;
+        }
+    };
+    potion.affect = function(target) {};
+
+    return potion;
+}
+
+var createHealingPotion = function() {
+    var potion = createPotion();
+
+    potion.power = 3;
+
+    var originalUseOn = potion.useOn;
+    potion.useOn = function(target) {
+        if (potion.usedUp === false) {
+            target.health += hp.power;
+            potion.usedUp = true;
+        }
+    }
+
+    return potion;
+};
+```
+
+### So you can do this:
+
+```javascript
+var me = {health: 10};
+var healingPotion = createHealingPotion();
+healingPotion.useOn(me);
+me.health; // outputs 13
+```
+
+### Instead of this:
+
+// TODO
+
+## Outfitter:
+
+Other Names: Installer
+Purpose: adds methods and properties to an object
+Naming convention: `add*`, `install*`
+Examples: TODO (link to code snippets in these scrolls where outfitters are used)
+
+### Implementation
+
+An Outfitter is just a function. You give it an object, and it makes changes to that object (usually by adding some properties).
+
+An Outfitter doesn't have to return anything, since it works directly on the object you give it instead of creating a copy or a new object. However, it's often convenient to have Outfitters return a value. They can return the object you passed in, or they can return themselves.
+
+```javascript
+var addInventory = function(target, startingItems) {
+    target.inventory = startingItems || [];
+    target.addToInventory = function(item) {
+        target.inventory.push(item)
+    };
+    target.removeFromInventory = function(item) {
+        // i'm too lazy to look up how to do this
+    };
+
+    return target;
+}
+```
+
+### Usage
+
+Outfitters are most useful within your spawner functions.
+
+```javascript
+var createPlayer = function() {
+    var p = { name: 'Teimengdh Aldurati' };
+    addInventory(p);
+    return p;
+}
+
+var createLockedChest = function() {
+    var c = {  }
+}
+
+var player1 = createPlayer()
+player1.addToInventory('glue sword');
+```
+
+## OutfitterSpawner:
+
+Other names: TargetedInstaller/Outfitter
+Purpose: Create a family of outfitters that all act on the same object.
+Naming convention: `(spawn|create)*(outfitter|installer)`
+
+```javascript
+// this is a normal outfitter
+var addAttribute = function(target, attrName, default) {
+    var attrValue = default;
+    target[attrName] = function(newValue) {
+        if (newValue !== undefined) attrValue = newValue;
+        return attrValue;
+    }
+}
+
+// this is the outfitter spawner
+var createAttributeInstaller = function(target) {
+    return function(attrName, default) {
+        addAttribute(target, attrName, default);
+    }
+}
+```
+
+### So you can do this:
+
+```javascript
+var player = {}
+
+// this doesn't save you that many keystrokes over the alternative below, but
+// you could use a shorter name instead of addPlayerAttribute.
+var addPlayerAttribute = createAttributeInstaller(player);
+addPlayerAttribute('health',  20);
+addPlayerAttribute('strength', 8);
+
+player.health() // outputs 20
+player.strength(10) // outputs 10 and sets player.strength to 10
+```
+
+### Instead of this:
+
+```javascript
+var player = {}
+
+addAttribute(player, 'health', 20);
+addAttribute(player, 'health', 20);
+
+player.health() // outputs 20
+player.strength(10) // outputs 10 and sets player.strength to 10
+```
+
+## OutfitterSpawnerSpawner
+
+Useful when you have a bunch of Outfitters and you want to create an Outfitter Spawner for each of them.
+
+```javascript
+var createOutfitterSpawner = function(outfitter) {
+    return function(target) {
+        return function() {
+            outfitter.apply(???)) // TODO lern 2 apply
+        }
+    };
+};
 ```

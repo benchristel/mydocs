@@ -1,11 +1,15 @@
-# Scroll I
+# The First Scroll: Introduction
 
-## Magic: Its Destruction and Creation
+## What is Magic?
 
 When people use the word *magic*, they are usually talking about a mechanism whose behavior they can describe but whose inner workings they cannot or do not care to explain. This definition applies equally well to stage magic (in which magicians seem to perform impossible feats by using techniques unknown to their audience), to fictional wizardry (which produces consistent effects, though its underlying mechanism is not usually explained), and to modern technology (which most people use but no one fully understands).
 
-The two tasks of programming are the destruction and creation of magic.
+## What is Programming?
 
-Destruction comes first because, to become a programmer, you must first break some of the illusions that other programmers have set up for you—illusions that you have been relying on for as long as you have been using computers. You will find out, for example, how computers communicate over the internet, and how all data from text to images to video are really just very long sequences of numbers. If computers seemed magical to you before, this will destroy the magic.
+_Programming_ is the creation of magic using a computer.
 
-And then you will stitch the illusion back up, and restore it to life, because a good programmer, like a good surgeon, can understand things without breaking them. The reason for this is that programmers can only be effective if, in their day-to-day work, they treat most of a computer's mechanisms as magic. At its heart, the computer you're using now is just an exquisite crystal of silicon over which a billion tiny voltages dance and fluctuate a billion times a second. You would have to be mad to program something like a web browser by manipulating these voltages directly. If you were not certifiably insane at the beginning of such a project, you would be by the end of it. But because of the magic that other programmers before us have woven, we can get away with imagining that a computer is something else—a universe where we can pluck numbers out of the ether and give them names, where text is text and images are images. And before this book is over, you too will be creating systems that can be used by people who don't understand how they work.
+There are many non-magical things you can create with a computer. You probably already know how to create images, documents, and videos. These things aren't magic, because there's no hidden mechanism behind them. What you see when you open up a text document or video file is all you get.
+
+A computer program, on the other hand, is more than the sum of its parts. Because its inner mechanisms are concealed, it can be used and appreciated by people who don't understand how those mechanisms work. It can be used for purposes that its author never imagined, and it can generate experiences that weren't explicitly baked into its structure. That makes programming more powerful—and, in my mind, more fun—than anything else you can do with a computer.
+
+The second-most-fun thing you can do with a computer is play games, so this book will focus on programming computer games.
