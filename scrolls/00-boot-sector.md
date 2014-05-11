@@ -10,9 +10,9 @@
 >
 > I, the author of this work, claim no affiliation with anything or anyone, and the opinions presented here are either my own, someone else's, or no one's. You, the reader, are free to do whatever you like with the contents of this work, as long as I don't find out about it.
 
-## How to Read These Scrolls
+## Intro to JavaScript
 
-First, a bit of background: the programming language used in this book is called JavaScript. It's used in pretty much every website in the universe. Every modern web browser (Firefox, Chrome, Internet Explorer, Safari, Opera) can understand some version of this language, which means websites work more or less the same on every computer and mobile device. Because it's built into every web browser, JavaScript is one of the easiest languages to get started in.
+First, a bit of background: the programming language you'll learn from this book is called JavaScript. It's used in pretty much every webpage in the universe. Every modern web browser (Firefox, Chrome, Internet Explorer, Safari, Opera) can understand some version of this language, which lets websites work the same way on every computer and mobile device. Because it's built into every web browser, JavaScript is one of the easiest languages to get started in.
 
 If you're using Chrome, you can start programming in JavaScript right now by selecting the **`View > Developer > JavaScript Console`** menu, or by pressing **`option + command + J`** (on a Mac) TODO: instructions for other browsers and OSes. This will bring up a control panel at the bottom of your screen that looks like this:
 
@@ -28,5 +28,5 @@ We can tell the browser to do something by typing a command into the console and
 alert("My name is Ozymandias, King of Kings; look on my works, ye mighty, and despair!");
 ```
 
-You can put whatever text you want in place of the Ozymandias line; as long as it's wrapped in quotes, it should work just fine.
+You can put whatever text you want in place of the Ozymandias line. As long as it's wrapped in quotes, it should work just fine.
 
