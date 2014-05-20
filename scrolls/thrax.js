@@ -2,9 +2,17 @@ Thrax = (function (undefined) {
   var $ = {}; // the thrax object
   
   $.COLOR =
-    { black: 'black'
-    , white: 'white'
-    , gray:  'gray'
+    { black: '#000'
+    , white: '#fff'
+    , gray:  '#808080'
+    , lightGray: '#c0c0c0'
+    , darkGray:  '#404040'
+    , red:     '#f00'
+    , green:   '#0f0'
+    , blue:    '#00f'
+    , yellow:  '#ff0'
+    , cyan:    '#0ff'
+    , magenta: '#f0f'
     }
   
   var def  = function(val) { return val !== undefined; };
@@ -26,6 +34,7 @@ Thrax = (function (undefined) {
             .replace(/&amp;/g,  '&');
   }
   
+  
   $.given = def;
   $.missing = ndef;
   $.isFunction = func;
@@ -36,6 +45,59 @@ Thrax = (function (undefined) {
   $.identity = function(x) { return x; };
   $.htmlEscape = esc;
   $.htmlUnescape = nesc;
+  
+  $.rollD = function(sides) {
+    return Math.ceil(Math.random() * sides);
+  };
+  $.pickRandomly = function(array) {
+    return array[$.rollD(array.length)-1];
+  };
+  $.drawRandomly = function(array) {
+    var index = $.rollD(array.length) - 1;
+    var drawn = array[index];
+    array.splice(index, 1);
+    return drawn;
+  };
+  $.cut = function(array) {
+    var middle = Math.floor(array.length / 2);
+    return [array.slice(0,middle), array.slice(middle, array.length)];
+  }
+  $.drawLast = function(array) {
+    return array.pop();
+  }
+  $.drawFirst = function(array) {
+    return array.shift();
+  }
+  $.replace = function(array, newContents) {
+    array.length = 0;
+    Array.prototype.push.apply(array, newContents);
+    return array;
+  }
+  // this simulates a riffle shuffle, which is not particularly random.
+  // for more randomness, use $.scramble(array)
+  $.shuffle = function(array, nTimes) {
+    var deck = array, stacks, card;
+    nTimes = $.init(nTimes, 1);
+    $.repeat(nTimes, function() {
+      stacks = $.cut(deck);
+      deck = [];
+      while (stacks[0].length && stacks[1].length) {
+        card = $.drawFirst($.pickRandomly(stacks));
+        deck.push(card);
+      }
+      deck = deck.concat(stacks[0], stacks[1]);
+    });
+    return $.replace(array, deck);
+  }
+  
+  $.scramble = function(array) {
+    var scrambled = []
+    while(array.length) {
+      scrambled.push($.drawRandomly(array));
+    }
+    return $.replace(array, scrambled);
+  }
+  
   $.copy = function(thing) {
     var copy;
     if ($.isArray(thing)) {
@@ -54,6 +116,12 @@ Thrax = (function (undefined) {
       merged[k] = v;
     });
     return merged;
+  };
+  
+  $.call = function(fn) {
+    if ($.isFunction(fn)) {
+      return fn.apply($, arguments.slice(1, arguments.length));
+    }
   }
   
   $.toCss = function(obj) {
@@ -62,21 +130,17 @@ Thrax = (function (undefined) {
     }).join("");
   };
   
-  var warnConflict = function(obj, property) {
-    if (def(obj[property])) {
-      console.log("WARNING: property "+property+" already defined on object:", obj)
-    }
-  }
-  
   $.forAll = function(array, fn) {
-    var transformed = $.copy(array);
+    fn = $.init(fn, $.identity);
+    var transformed = new Array(array.length);
     for(var i = 0; i < array.length; i++) {
-      transformed[i] = fn(array[i]);
+      transformed[i] = fn(array[i], i);
     }
     return transformed;
   }
   
   $.forAllPropertiesOf = function(object, fn) {
+    fn = $.init(fn, $.identity);
     var accumulated = [];
     for (var prop in object) {
       if (object.hasOwnProperty(prop)) {
@@ -86,7 +150,27 @@ Thrax = (function (undefined) {
     return accumulated;
   }
   
-  $.collect = function(array, prop) { /*TODO*/ }
+  $.sum = function(array) {
+    var sum = 0;
+    $.forAll(array, function(x) {
+      sum += x;
+    });
+    return sum;
+  };
+  
+  $.repeat = function(nTimes, fn) {
+    fn = $.init(fn, $.identity);
+    var count = 0, accumulated = new Array(nTimes);
+    while (count < nTimes) {
+      accumulated[count] = fn(count, accumulated);
+      count++;
+    }
+    return accumulated;
+  }
+  
+  $.toggle = function(current, value1, value2) {
+    return current === value1 ? value2 : value1;
+  }
   
   $.imbueWithAttributes = function(vessel, secret) {
     secret = $.init(secret, {});
@@ -118,6 +202,23 @@ Thrax = (function (undefined) {
         return s.attributes[attrName];
       };
       
+      if ($.isNumber(defaultValue)) {
+        vessel['increase'+cap(attrName)] = function(inc, shouldCallback) {
+          var newValue = vessel[attrName]() + inc;
+          return vessel[attrName](newValue, shouldCallback);
+        }
+        
+        vessel['decrease'+cap(attrName)] = function(dec, shouldCallback) {
+          var newValue = vessel[attrName]() - dec;
+          return vessel[attrName](newValue, shouldCallback);
+        }
+      }
+      
+      vessel['toggle'+cap(attrName)] = function(val1, val2, shouldCallback) {
+        var newValue = $.toggle(vessel[attrName](), val1, val2);
+        return vessel[attrName](newValue, shouldCallback);
+      }
+      
       // return the imbuer so calls can be chained
       return s.imbuer;
     };
@@ -138,7 +239,7 @@ Thrax = (function (undefined) {
     return s.imbuer;
   };
   
-  $.addElement = function(tag, attrs) {
+  var addElement = function(tag, attrs) {
     attrs = $.init(attrs, {})
     var elem = document.createElement(tag || 'div');
     
@@ -156,7 +257,7 @@ Thrax = (function (undefined) {
     secret = $.init(secret, {});
     var ui = {};
     
-    secret.domElement = $.addElement(params.tag);
+    secret.domElement = addElement(params.tag);
     secret.attr = $.imbueWithAttributes(ui, secret);
     var attr = secret.attr;
     
@@ -170,16 +271,17 @@ Thrax = (function (undefined) {
         ('whenKeyReleased', function() {})
         ('top', 10)
         ('left', 10)
-        ('height', 10)
-        ('width', 10)
+        ('height', 30)
+        ('width', 80)
         ('visible', true)
         ('text', '')
         ('fontSize', 20)
-        ('textColor', '')
+        ('textColor', '#000')
         ('backgroundColor', $.COLOR.white)
         ('textColor', $.COLOR.black)
         ('borderColor', $.COLOR.gray)
         ('borderWidth', 1)
+        ('scrollable', false)
     ;
     
     ui.attributes = secret.attr.attributes;
@@ -225,6 +327,9 @@ Thrax = (function (undefined) {
         , 'border-width' : ui.borderWidth()
         , 'position' : 'absolute'
         , 'font-size' : String(ui.fontSize())+'px'
+        , 'white-space' : 'pre-wrap'
+        , 'overflow-x' : 'hidden'
+        , 'overflow-y' : (ui.scrollable() ? 'auto' : 'hidden')
         };
       return css;
     };
@@ -239,14 +344,14 @@ Thrax = (function (undefined) {
     
     var attr = secret.attr;
     
-    var oldAsCss = secret.asCss;
-    secret.asCss = function() {
-      return $.merge(oldAsCss(),
-        { top:  String(self.top())+"px"
-        , left: String(self.left())+"px"
-        }
-      );
-    };
+    return self;
+  };
+  
+  $.createTextDisplay = function() {
+    var secret = {};
+    var self = createUiElement({tag: 'div'}, secret);
+    
+    var attr = secret.attr;
     
     return self;
   };
@@ -258,4 +363,4 @@ Thrax = (function (undefined) {
   return $;
 })();
 
-$ = Thrax;
+var $ = Thrax;
