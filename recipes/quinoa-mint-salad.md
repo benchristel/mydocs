@@ -10,7 +10,7 @@
 	- salt
 	- pepper
 - onion, chopped
-- green beans, chopped into 1" pieces
+- green beans, cut into 1" pieces
 - carrot, thinly sliced
 - fennel bulb, thinly sliced and chopped
 - 1/2 cup raisins
@@ -20,6 +20,10 @@
 
 1. Cook the quinoa in 3 cups salted water, about 15 minutes
 2. While the cooked quinoa is still warm, add the dressing and mix.
-3. Steam the green beans 8-10 minutes until tender.
-4. Saute onion, fennel, and carrot in 1 tbsp oil.
-5. Mix everything together. Garnish with chopped mint.
+3. Steam the green beans 8-10 minutes or until tender.
+4. Saute onion and fennel in 1 tbsp oil.
+5. Mix the quinoa, onion, fennel, raisins, and carrots. Garnish with chopped mint. Serve at room temperature.
+
+## Notes
+
+This is delicious leftover -- the onions get sweeter as they soak up the oil and vinegar.

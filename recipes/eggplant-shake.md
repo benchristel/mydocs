@@ -26,15 +26,16 @@ Serves 6.
 2. While the eggplants soak, chop the onion and peppers. Crush and skin the garlicks and prepare them for pressing.
 
 3. Saute in 2-3 tbsp olive oil and 1 tsp sugar:
-   | ingredient | when to add next |
-   | ---------- | ---------------- |
-   | onions     | when translucent |
-   | garlic     | in 30 seconds    |
-   | peppers    | in 3 minutes     |
-   | cinnamon   | in 15 seconds    |
-   | tomatoes   | immediately      |
-   | eggplant   | immediately      |
-   | lemon juice | n/a      |
+
+  | ingredient | when to add next |
+  | ---------- | ---------------- |
+  |  onions     | when translucent |
+  | garlic     | in 30 seconds    |
+  | peppers    | in 3 minutes     |
+  | cinnamon   | in 15 seconds    |
+  | tomatoes   | immediately      |
+  | eggplant   | immediately      |
+  | lemon juice | n/a      |
 
 4. Add 1-2 cups of water, until the water is visible in the pot. Cover and bring to a boil. Reduce heat and simmer for 20 minutes, or until eggplant is on the verge of disintegrating.
 
