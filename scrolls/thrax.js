@@ -15,37 +15,35 @@ Thrax = (function (undefined) {
     , magenta: '#f0f'
     }
   
-  var def  = function(val) { return val !== undefined; };
-  var ndef = function(val) { return val === undefined; };
-  var func = function(val) { return typeof(val) === 'function'; };
+  // the coordinates at which Thrax will draw the next UI element
+  var turtleX = 0;
+  var turtleY = 0;
+  
   var cap  = function(s) { return s.charAt(0).toUpperCase()+s.slice(1, s.length); };
-  var esc  = function(s) { 
+  
+  $.given = function(val) { return val !== undefined; };
+  $.missing = function(val) { return val === undefined; };
+  $.isFunction = function(val) { return typeof(val) === 'function'; };
+  $.isArray  = function(thing) { return thing instanceof Array; };
+  $.isObject = function(thing) { return thing instanceof Object; };
+  $.isNumber = function(thing) { return (+thing === thing) }
+  $.init = function(val, _default) { return $.given(val) ? val : _default; };
+  $.noOp = function() {};
+  $.identity = function(x) { return x; };
+  $.htmlEscape = function(s) { 
     return String(s)
             .replace(/&/g, '&amp;')
             .replace(/"/g, '&quot;')
             .replace(/</g, '&lt;')
             .replace(/>/g, '&gt;');
-  }
-  var nesc = function(s) {
+  };
+  $.htmlUnescape = nesc = function(s) {
     return String(s)
             .replace(/&gt;/g,   '>')
             .replace(/&lt;/g,   '<')
             .replace(/&quot;/g, '"')
             .replace(/&amp;/g,  '&');
-  }
-  
-  
-  $.given = def;
-  $.missing = ndef;
-  $.isFunction = func;
-  $.isArray  = function(thing) { return thing instanceof Array; };
-  $.isObject = function(thing) { return thing instanceof Object; };
-  $.init = function(val, _default) { return def(val) ? val : _default; };
-  $.noOp = function() {};
-  $.identity = function(x) { return x; };
-  $.htmlEscape = esc;
-  $.htmlUnescape = nesc;
-  
+  };
   $.rollD = function(sides) {
     return Math.ceil(Math.random() * sides);
   };
@@ -61,18 +59,18 @@ Thrax = (function (undefined) {
   $.cut = function(array) {
     var middle = Math.floor(array.length / 2);
     return [array.slice(0,middle), array.slice(middle, array.length)];
-  }
+  };
   $.drawLast = function(array) {
     return array.pop();
-  }
+  };
   $.drawFirst = function(array) {
     return array.shift();
-  }
+  };
   $.replace = function(array, newContents) {
     array.length = 0;
     Array.prototype.push.apply(array, newContents);
     return array;
-  }
+  };
   // this simulates a riffle shuffle, which is not particularly random.
   // for more randomness, use $.scramble(array)
   $.shuffle = function(array, nTimes) {
@@ -88,16 +86,14 @@ Thrax = (function (undefined) {
       deck = deck.concat(stacks[0], stacks[1]);
     });
     return $.replace(array, deck);
-  }
-  
+  };
   $.scramble = function(array) {
     var scrambled = []
     while(array.length) {
       scrambled.push($.drawRandomly(array));
     }
     return $.replace(array, scrambled);
-  }
-  
+  };
   $.copy = function(thing) {
     var copy;
     if ($.isArray(thing)) {
@@ -109,7 +105,7 @@ Thrax = (function (undefined) {
       });
     }
     return copy;
-  }
+  };
   $.merge = function(obj1, obj2) {
     var merged = $.copy(obj1);
     $.forAllPropertiesOf(obj2, function(k, v) {
@@ -117,19 +113,16 @@ Thrax = (function (undefined) {
     });
     return merged;
   };
-  
-  $.call = function(fn) {
+  $.call = function(fn, arguments, thisVal) {
     if ($.isFunction(fn)) {
-      return fn.apply($, arguments.slice(1, arguments.length));
+      return fn.apply(thisVal || $, arguments);
     }
-  }
-  
+  };
   $.toCss = function(obj) {
     return $.forAllPropertiesOf(obj, function(k, v) {
       return k + ":" + v + ";";
     }).join("");
   };
-  
   $.forAll = function(array, fn) {
     fn = $.init(fn, $.identity);
     var transformed = new Array(array.length);
@@ -137,8 +130,7 @@ Thrax = (function (undefined) {
       transformed[i] = fn(array[i], i);
     }
     return transformed;
-  }
-  
+  };
   $.forAllPropertiesOf = function(object, fn) {
     fn = $.init(fn, $.identity);
     var accumulated = [];
@@ -148,8 +140,7 @@ Thrax = (function (undefined) {
       }
     }
     return accumulated;
-  }
-  
+  };
   $.sum = function(array) {
     var sum = 0;
     $.forAll(array, function(x) {
@@ -157,7 +148,24 @@ Thrax = (function (undefined) {
     });
     return sum;
   };
-  
+  $.firstOf = function(array) {
+    return array[0]
+  };
+  $.lastOf = function(array) {
+    return array[array.length-1]
+  };
+  $.rotated = function(array, numPositions) {
+    numPositions = $.init(numPositions, 1);
+    sliceIndex = (array.length - numPositions) % array.length;
+    if (sliceIndex < 0) sliceIndex += array.length;
+    var beginning = array.slice(0, sliceIndex);
+    var end = array.slice(sliceIndex, array.length);
+    return end.concat(beginning);
+  };
+  $.rotate = function(array, numPositions) {
+    $.replace(array, $.rotated(array, numPositions));
+    return array;
+  };
   $.repeat = function(nTimes, fn) {
     fn = $.init(fn, $.identity);
     var count = 0, accumulated = new Array(nTimes);
@@ -167,10 +175,9 @@ Thrax = (function (undefined) {
     }
     return accumulated;
   }
-  
   $.toggle = function(current, value1, value2) {
     return current === value1 ? value2 : value1;
-  }
+  };
   
   $.imbueWithAttributes = function(vessel, secret) {
     secret = $.init(secret, {});
@@ -248,6 +255,7 @@ Thrax = (function (undefined) {
         elem.setAttribute(attr, attrs[attr]);
       }
     }
+    console.log($.screen());
     $.screen().appendChild(elem);
     return elem;
   };
@@ -269,8 +277,8 @@ Thrax = (function (undefined) {
         ('whenMouseMoves', function() {})
         ('whenKeyPressed', function() {})
         ('whenKeyReleased', function() {})
-        ('top', 10)
-        ('left', 10)
+        ('top', turtleY)
+        ('left', turtleX)
         ('height', 30)
         ('width', 80)
         ('visible', true)
@@ -283,6 +291,12 @@ Thrax = (function (undefined) {
         ('borderWidth', 1)
         ('scrollable', false)
     ;
+    
+    turtleX += 100;
+    if (turtleX > 800) {
+      turtleX = 0;
+      turtleY += 50;
+    }
     
     ui.attributes = secret.attr.attributes;
     
@@ -356,9 +370,63 @@ Thrax = (function (undefined) {
     return self;
   };
   
-  var body = document.getElementsByTagName("body")[0];
+  $.createTicker = function() {
+    var secret = {};
+    var self = {};
+    secret.attr = $.imbueWithAttributes(self, secret);
+    secret.attr('interval', 1);
+    secret.attr('whenTicked', function() {});
+    
+    var started = false;
+    var lastTick = 0;
+    
+    self.start = function() {
+      started = true;
+      lastTick = new Date().getTime();
+      secret.jsInterval = setInterval(
+        function () {
+          var now = new Date().getTime();
+          self.whenTicked()((now - lastTick) / 1000);
+          lastTick = now;
+        },
+        self.interval()*1000
+      );
+    }
+    
+    self.stop = function() {
+      started = false;
+      clearInterval(secret.jsInterval);
+    }
+    
+    self.started = function() {
+      return started;
+    }
+    
+    return self;
+  }
+  
+  // global event handlers
+  
   var $attr = $.imbueWithAttributes($);
-  $attr('screen', body);
+  $attr('screen', "not a real screen");
+  $attr('boot', function() {});
+  $attr('whenKeyPressed', function() {});
+  
+  var oldWindowOnload = window.onload
+  window.onload = function() {
+    $.call(oldWindowOnload, arguments, this);
+    
+    var body = document.getElementsByTagName("body")[0];
+    var oldBodyOnKeyPress = body.onkeypress;
+    body.onkeypress = function () {
+      $.call(oldBodyOnKeyPress, arguments, this);
+      $.call($.whenKeyPressed(), arguments);
+    }
+    
+    $.screen(body);
+    
+    $.boot()();
+  }
 
   return $;
 })();
