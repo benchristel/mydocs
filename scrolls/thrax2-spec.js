@@ -1,6 +1,10 @@
 "use strict";
 
 describe('Thrax 2', function() {
+    afterEach(function() {
+       Thrax2.clearScreen(); 
+    });
+    
     it("exists", function() {
         expect(Thrax2).not.toBe(undefined);
     });
@@ -217,6 +221,34 @@ describe('Thrax 2', function() {
                 Thrax2.merge({a: 1}, {a: 2})
             ).toEqual({a: 2})
         });
+        
+        it("destructively modifies the first object", function() {
+            var a = {a: 1}
+            Thrax2.merge(a, {b: 2})
+            expect(a).toEqual({a: 1, b: 2})
+        });
+    });
+    
+    describe(".merged", function() {
+        it("merges the properties of two objects", function() {
+            expect(
+                Thrax2.merged({a: 1}, {b: 2})
+            ).toEqual({a: 1, b: 2})
+        });
+        
+        it("prefers values from the second object to those from the first", function() {
+            expect(
+                Thrax2.merged({a: 1}, {a: 2})
+            ).toEqual({a: 2})
+        });
+        
+        it("does not destructively modify either object", function() {
+            var a = {a: 1}
+            var b = {b: 2}
+            Thrax2.merged(a, b)
+            expect(a).toEqual({a: 1})
+            expect(b).toEqual({b: 2})
+        });
     });
     
     describe(".call", function() {
@@ -267,8 +299,8 @@ describe('Thrax 2', function() {
         describe("with {writable: false}", function() {
             it("makes attempts to write to the property fail with an error (in strict mode)", function() {
                 var obj = {};
-                Thrax2.addProperties(obj, {name: 'Krondor the Immutable'}, {writable: false});
-                expect(obj.name).toBe('Krondor the Immutable');
+                Thrax2.addProperties(obj, {name: 'Uireb'}, {writable: false});
+                expect(obj.name).toBe('Uireb');
                 
                 var caught = false;
                 try {
@@ -278,7 +310,7 @@ describe('Thrax 2', function() {
                 }
                 
                 expect(caught).toBe(true);
-                expect(obj.name).toBe('Krondor the Immutable');
+                expect(obj.name).toBe('Uireb');
             });
         });
     });
@@ -328,9 +360,9 @@ describe('Thrax 2', function() {
         });
     });
     
-    describe("A generic Thrax UI Element", function() {
+    describe("A Thrax text display", function() {
         beforeEach(function() {
-            this.elem = Thrax2.createUiElement();
+            this.elem = Thrax2.createTextDisplay();
             spyOn(this.elem, 'redraw');
         });
         

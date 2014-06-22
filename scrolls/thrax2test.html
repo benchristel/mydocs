@@ -3,12 +3,86 @@
 <title>hi</title>
 <script type="text/javascript" src="thrax2.js"></script>
 <script type="text/javascript">
-  var Z = Thrax2;
-  Z.boot(function() {
-    Z.repeat(1000, function() {
-      var b = Z.createButton();
-    });
-  });
+
+
+"use strict";
+
+var player1time = 10 * 60;
+var player2time = 10 * 60;
+var whoseTurn = 1;
+
+var display1 = Z.createTextDisplay();
+var display2 = Z.createTextDisplay();
+
+var gameOver = false;
+
+display1.color = 'red';
+display1.top = 100;
+display2.top = 100;
+display1.left = 100;
+display2.left = 400;
+display1.width = 300;
+display2.width = 300;
+display1.fontSize = 36;
+display2.fontSize = 36;
+
+display1.whenClicked(function() { console.log("display 1 was clicked!"); })
+display1.whenClicked(function() { console.log("multiple callbacks!"); })
+display2.whenClicked(function() { console.log("display 2 was clicked!"); })
+
+var getTimeRemainingDescription = function(seconds) {
+	if (seconds === 1) {
+		return "1 second";
+	} else if (seconds === 0) {
+		return "Out of time!";
+	} else {
+		return seconds + " seconds";
+	}
+}
+
+display1.text = getTimeRemainingDescription(player1time);
+display2.text = getTimeRemainingDescription(player2time);
+
+var updateClocks = function() {
+	if (gameOver === true) {
+		return;
+	}
+
+	if (whoseTurn === 1) {
+		player1time = player1time - 1;		
+	} else {
+		player2time = player2time - 1;
+	}
+
+	if (player1time <= 0) {
+		gameOver = true;
+		alert("player 2 wins!")
+	}
+
+	if (player2time <= 0) {
+		gameOver = true;
+		alert("player 1 wins!")
+	}
+
+	display1.text = getTimeRemainingDescription(player1time);
+	display2.text = getTimeRemainingDescription(player2time);
+}
+
+var switchPlayer = function() {
+	if (whoseTurn === 1) {
+		whoseTurn = 2;
+		display2.color = 'red';
+		display1.color = 'white';
+	} else {
+		whoseTurn = 1;
+		display1.color = 'red';
+		display2.color = 'white';
+	}
+}
+
+Z.everySecond(updateClocks);
+Z.whenKeyPressed = switchPlayer;
+
 </script>
 </head>
 <body></body>
