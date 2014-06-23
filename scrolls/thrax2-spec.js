@@ -191,6 +191,61 @@ describe('Thrax 2', function() {
         });
     });
     
+    describe(".remove", function() {
+        it("returns the array with all occurrences of the item removed", function() {
+            var a = [1, 2, 3, 2, 5];
+            expect(Thrax2.remove(2, a)).toEqual([1, 3, 5]);
+        });
+        
+        it("destructively modifies the array", function() {
+            var a = [1, 2, 3, 2, 5];
+            Thrax2.remove(2, a);
+            expect(a).toEqual([1, 3, 5]);
+        });
+    });
+    
+    describe(".replace", function() {
+        it("destructively replaces the contents of an array", function() {
+            var old = [1, 2, 3, 2, 5];
+            var neu = [0, 1, 0];
+            Thrax2.replace(old, neu);
+            expect(old).toEqual([0, 1, 0]);
+        });
+        
+        it("returns the modified array", function() {
+            var old = [1, 2, 3, 2, 5];
+            var neu = [0, 1, 0];
+            expect(Thrax2.replace(old, neu)).toEqual([0, 1, 0]);
+        });
+    });
+    
+    describe(".sum", function() {
+        it("sums numbers in the array", function() {
+            var a = [1, 2, 3, 4, -1];
+            expect(Thrax2.sum(a)).toBe(9);
+        });
+    });
+    
+    describe(".firstOf", function() {
+        it("returns the first element of the array", function() {
+            expect(Thrax2.firstOf(['first', 'middle', 'last'])).toBe('first');
+        });
+        
+        it("returns undefined when given an empty array", function() {
+            expect(Thrax2.firstOf([])).toBe(undefined);
+        });
+    });
+    
+    describe(".lastOf", function() {
+        it("returns the last element of the array", function() {
+            expect(Thrax2.lastOf(['first', 'middle', 'last'])).toBe('last');
+        });
+        
+        it("returns undefined when given an empty array", function() {
+            expect(Thrax2.lastOf([])).toBe(undefined);
+        });
+    });
+    
     describe(".copy", function() {
         it("copies arrays", function() {
             var a1 = [1,2,3];
@@ -376,6 +431,56 @@ describe('Thrax 2', function() {
             expect(this.elem.redraw).not.toHaveBeenCalled();
             this.elem.text = 'it worked';
             expect(this.elem.redraw).toHaveBeenCalled();
+        });
+        
+        it("can have a click handler set", function() {
+            var called = false;
+            this.elem.whenClicked(function() { called = true; });
+            this.elem.receiveEvent('clicked');
+            expect(called).toBe(true);
+        });
+        
+        it("can have multiple click handlers set", function() {
+            var called1 = false, called2 = false;
+            this.elem.whenClicked(function() { called1 = true; });
+            this.elem.whenClicked(function() { called2 = true; });
+            this.elem.receiveEvent('clicked');
+            expect(called1).toBe(true);
+            expect(called2).toBe(true);
+        });
+        
+        it("can't have the same click handler registered multiple times", function() {
+            var called = 0, cb = function() { called++; };
+            this.elem.whenClicked(cb);
+            this.elem.whenClicked(cb);
+            this.elem.receiveEvent('clicked');
+            expect(called).toBe(1);
+        });
+        
+        it("can have click handlers removed", function() {
+            var called1 = 0, called2 = 0,
+                inc1 = function() { called1++; },
+                inc2 = function() { called2++; }
+            this.elem.whenClicked(inc1);
+            this.elem.whenClicked(inc2);
+            this.elem.receiveEvent('clicked');
+            this.elem.whenClicked.doNot(inc1);
+            this.elem.receiveEvent('clicked');
+            expect(called1).toBe(1);
+            expect(called2).toBe(2);
+        });
+        
+        it("can have click handlers cleared and re-added", function() {
+            var called = 0,
+                inc = function() { called++; }
+            this.elem.whenClicked(inc);
+            this.elem.receiveEvent('clicked');
+            this.elem.whenClicked.doNothing();
+            this.elem.receiveEvent('clicked');
+            expect(called).toBe(1);
+            this.elem.whenClicked(inc);
+            this.elem.receiveEvent('clicked');
+            expect(called).toBe(2);
         });
     });
 });

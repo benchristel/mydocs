@@ -201,6 +201,15 @@ var Thrax2 = (function (undefined) {
           var middle = Math.floor(array.length / 2);
           return [array.slice(0,middle), array.slice(middle, array.length)];
         }
+    , remove:
+        function(item, array) {
+          for (var i = array.length-1; i >= 0; i--) {
+            if (array[i] === item) {
+              array.splice(i, 1);
+            }
+          }
+          return array;
+        }
     , clear:
         function(array) { array.length = 0; return array; }
     
@@ -280,6 +289,18 @@ var Thrax2 = (function (undefined) {
           }
           return undefined;
         }
+    , extend:
+        function(object, method, extension) {
+          var originalMethod = object[method];
+          return object[method] = $.extended(originalMethod, extension);
+        }
+    , extended:
+        function(fn, extension) {
+          return function() {
+            $.call(fn, arguments, this);
+            return $.call(extension, arguments, this);
+          };
+        }
     , addProperties:
         function(object, props, options) {
           options = $.init(options, {});
@@ -328,13 +349,17 @@ var Thrax2 = (function (undefined) {
     
     // UI
     , clearScreen:
-        function() { _.removeAllElementsFromDom(); }
+        function() {
+          _.resetTurtle();
+          _.removeAllElementsFromDom();
+        }
     }
   );
   
   $private(
     { turtleX: 0
     , turtleY: 0
+    , resetTurtle: function() { _.turtleX = _.turtleY = 0; }
     , uiElements: []
     , appendToScreen:
         function(elem) {
@@ -409,13 +434,8 @@ var Thrax2 = (function (undefined) {
           
           d.process = $.identity;
           
-          //d.receiver = function(eventName) {
-          //  return function(eventData) {
-          //    d.receiveEvent(eventName, eventData);
-          //  }
-          //};
-          
           d.register = function(handlerMapping) {
+            d.unregister(handlerMapping); // prevent handlers from being registered more than once
             $.forAllPropertiesOf(handlerMapping, function(eventName, handlers) {
               d.registeredCallbacks[eventName] = $.init(d.registeredCallbacks[eventName], [])
               // TODO: $.init(handle.registeredCallbacks, eventName, []) would be cool
@@ -430,16 +450,47 @@ var Thrax2 = (function (undefined) {
               } else {
                 throw "Can't register event handler for "+eventName+": "+handlers;
               }
-            })
+            });
+          };
+          
+          d.unregister = function(handlerMapping) {
+            $.forAllPropertiesOf(handlerMapping, function(eventName, handlers) {
+              // TODO: $.init(handle.registeredCallbacks, eventName, []) would be cool
+              if ($.isArray(handlers)) {
+                var map = {};
+                $.forAll(handlers, function(handler) {
+                  map[eventName] = handler;
+                  d.unregister(map);
+                });
+              } else if ($.isFunction(handlers)) {
+                if ($.isArray(d.registeredCallbacks[eventName])) {
+                  $.remove(handlers, d.registeredCallbacks[eventName]);
+                }
+              } else {
+                throw "Can't unregister event handler for "+eventName+": "+handlers;
+              }
+            });
           };
           
           d.registrar = function(eventName) {
-            return function() {
+            var registrar = function() {
               var map = {};
               map[eventName] = $.forAll(arguments);
               d.register(map);
             }
-          }
+            
+            registrar.doNot = function() {
+              var map = {};
+              map[eventName] = $.forAll(arguments);
+              d.unregister(map)
+            }
+            
+            registrar.doNothing = function() {
+              d.registeredCallbacks[eventName] = [];
+            }
+            
+            return registrar;
+          };
           
           d.registeredCallbacks = {};
           
@@ -491,6 +542,7 @@ var Thrax2 = (function (undefined) {
             , borderWidth: 1
             , borderColor: 'lightGray'
             , scrollable: false
+            , cursor: 'auto'
             , data: {} // this property is not used by thrax; it's for the user to store their own data
             });
           
@@ -531,7 +583,7 @@ var Thrax2 = (function (undefined) {
               , 'left'   : $.toNumericString(ui.left)+'px'
               , 'height' : $.toNumericString(ui.height)+'px'
               , 'width'  : $.toNumericString(ui.width)+'px'
-              , 'color'  : ui.textColor
+              , 'color'  : $.COLOR[ui.textColor]
               , 'background-color' : $.COLOR[ui.color]
               , 'display' : (ui.visible ? 'block' : 'none')
               , 'border-color' : $.COLOR[ui.borderColor]
@@ -541,6 +593,7 @@ var Thrax2 = (function (undefined) {
               , 'white-space' : 'pre-wrap'
               , 'overflow-x' : 'hidden'
               , 'overflow-y' : (ui.scrollable ? 'auto' : 'hidden')
+              , 'cursor' : ui.cursor
               };
             return css;
           };
@@ -555,6 +608,8 @@ var Thrax2 = (function (undefined) {
   
   $.createButton = function() {
     var self = _.createUiElement({tag: 'button'});
+    
+    self.cursor = 'pointer'
     
     return self;
   };
@@ -600,46 +655,40 @@ var Thrax2 = (function (undefined) {
     return self;
   }
   
-  // global event handlers
-  
-  //var Zattr = $.imbueWithAttributes(Z);
-  //Zattr('screen', "not a real screen");
-  //Zattr('boot', function() {});
-  //Zattr('whenKeyPressed', function() {});
-  
-  var oldWindowOnload = window.onload
-  
   // when the screen is set, remove any created UI elements from the old screen
   // and add them to the new one.
   var _screen = function(v) {
     if ($.given(v) && v !== _screen.d) {
-      _.removeAllElementsFromDom;
+      _.removeAllElementsFromDom();
       _screen.d = v;
       _.addElementsToDom(_screen.d, _.uiElements);
     }
     return _screen.d;
   }
   _screen.d = null;
-  Object.defineProperty($, 'screen', {set: _screen, get: _screen })
+  Object.defineProperty($, 'screen', {set: _screen, get: _screen, configurable: false});
   
-  $.whenPageLoadFinishes = $.noOp;
+  var $dispatch = _.addEventDispatcher($);
   
-  window.onload = function() {
-    $.call(oldWindowOnload, arguments, this);
-    
-    var body = document.getElementsByTagName("body")[0];
-    var oldBodyOnKeyPress = body.onkeypress;
-    body.onkeypress = function () {
-      $.call(oldBodyOnKeyPress, arguments, this);
-      $.call($.whenKeyPressed, arguments);
+  $.addProperties($
+  , { whenPageLoadFinishes: $dispatch.registrar('pageLoaded')
+    , whenKeyPressed:       $dispatch.registrar('keyPressed')
     }
+  , { writable: false }
+  );
+  
+  $.extend(window, 'onload', function() {
+    var body = document.getElementsByTagName("body")[0];
+    
+    $.extend(body, 'onkeypress', $dispatch('keyPressed'));
     
     $.screen = body;
-    
-    $.call($.whenPageLoadFinishes);
-  }
+  });
+  
+  $.extend(window, 'onload', $dispatch('pageLoaded'));
 
   return $;
 })();
 
 var Z = Thrax2;
+var Thrax = Thrax2;
