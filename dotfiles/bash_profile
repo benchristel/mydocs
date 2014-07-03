@@ -1,8 +1,9 @@
 # set PostgreSQL host
 export PGHOST=localhost
 
-# remove this if you've downloaded this file from
-printf "$(/Users/bchristel/.rvm/rubies/ruby-1.9.2-p290/bin/ruby ~/Desktop/projects/Dunmanifestin/script/make_manifest.rb -hg sophistry)\r"
+# ensure that /usr/local/bin takes precedence over /usr/bin,
+# so that homebrew-installed tools will override system tools
+export PATH="/usr/local/bin:$PATH"
 
 eval "$(rbenv init - )"
 rbenv rehash
@@ -41,12 +42,7 @@ PS1='\[$(tput bold)\]$(parse_git_branch)\[$(alternate_color)\]\w \$ \[$(tput sgr
 
 shopt -s extglob
 
-### ban risky actions
-rm () {
- echo "No."
-}
-
-### always use gnutar
+### always use gnutar. I forget why, though.
 [[ $(which /usr/bin/gnutar) ]] && alias tar='/usr/bin/gnutar'
 
 ################
@@ -57,8 +53,8 @@ alias gb="git branch"
 alias gc="git checkout"
 alias gbm="git checkout master && git pull && git checkout -b"
 alias gcm="git checkout master"
-alias gd="git diff"
-alias gds="git diff --staged"
+alias gd="git diff --color"
+alias gds="git diff --staged --color"
 
 gu () {
  git push origin $(parse_git_branch)
@@ -70,17 +66,22 @@ gdown () {
 
 alias gdoom="git pull origin master"
 alias gum="git push origin master"
-alias mm="cd ~/mastermerchant && gs"
-alias ug="cd ~/ubergateway && gs"
-alias ap="cd ~/Desktop/projects/anonymouspost && gs"
 
 ### Delete all merged branches
+gcleanup() {
+ git branch | sed -E "N; s/\*|[[:<:]]deploy[[:>:]]|[[:<:]]prod_deploy[[:>:]]|[[:<:]]master[[:>:]]/ /g" | xargs git branch -d
+}
 
-#alias gcleanup="git branch | sed -E 'N; s/\*|\s+deploy\n|\s+prod_deploy\n|\s+master\n/ /g' | xargs git branch -d"
-alias gcleanup='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
+##############
+# RAILS STUFF
 
 alias dbup="bundle exec rake db:migrate db:test:prepare"
 alias dbdown="bundle exec rake db:rollback db:test:prepare"
+
+# search a Rails codebase (requires extglob)
+gerp () {
+ grep -r $1 !(tmp|log|vendor)
+}
 
 alias spec="RUBYOPT=W0 spring rspec"
 
@@ -88,6 +89,3 @@ alias spec="RUBYOPT=W0 spring rspec"
 . ~/.bash_profile_groupon
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-printf "                                                                                                                 \r"
-
