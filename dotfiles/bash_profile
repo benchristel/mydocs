@@ -1,3 +1,8 @@
+export PATH="/usr/local/bin/mysql:$PATH"
+export PATH="/usr/local/mysql/bin:$PATH"
+export DYLD_LIBRARY_PATH="/usr/local/mysql/lib:$DYLD_LIBRARY_PATH"
+export PATH=${PATH}:/Library/PostgreSQL/9.1/bin
+
 # set PostgreSQL host
 export PGHOST=localhost
 
@@ -5,8 +10,8 @@ export PGHOST=localhost
 # so that homebrew-installed tools will override system tools
 export PATH="/usr/local/bin:$PATH"
 
-eval "$(rbenv init - )"
-rbenv rehash
+# eval "$(rbenv init - )"
+# rbenv rehash
 
 parse_git_branch () {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1 /'
@@ -69,7 +74,12 @@ alias gum="git push origin master"
 
 ### Delete all merged branches
 gcleanup() {
- git branch | sed -E "N; s/\*|[[:<:]]deploy[[:>:]]|[[:<:]]prod_deploy[[:>:]]|[[:<:]]master[[:>:]]/ /g" | xargs git branch -d
+ gmerged | xargs git branch -d
+}
+
+### Find merged branches
+gmerged() {
+ git branch | sed -E "N; s/\*|[[:<:]]deploy[[:>:]]|[[:<:]]prod_deploy[[:>:]]|[[:<:]]master[[:>:]]/ /g"
 }
 
 ##############
@@ -82,10 +92,5 @@ alias dbdown="bundle exec rake db:rollback db:test:prepare"
 gerp () {
  grep -r $1 !(tmp|log|vendor)
 }
-
-alias spec="RUBYOPT=W0 spring rspec"
-
-### Do Groupondev-specific stuff. Delete this line if you don't have a ~/.bash_profile_groupon script.
-. ~/.bash_profile_groupon
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
