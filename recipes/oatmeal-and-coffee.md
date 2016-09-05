@@ -8,6 +8,7 @@ This is the ultimate first breakfast - simple, quick, and easy to chase down wit
 - Liquid measuring cup
 - Single-cup (#2) drip coffee filters
 - [Coffee-dripper thingy](https://www.google.com/search?q=coffee+dripper&espv=2&biw=1233&bih=713&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjV-uGe6MPKAhVIzmMKHY1ICUUQ_AUIBygC#tbm=isch&q=ceramic+coffee+dripper)
+- [Flat-bottomed bowl](https://www.google.com/search?tbm=isch&q=soup+plate), for eating out of. Do not use hemispherical bowls for oatmeal; you want layers, not a starchy glob.
 
 ## Ingredients
 
@@ -35,3 +36,7 @@ This is the ultimate first breakfast - simple, quick, and easy to chase down wit
 - Slice a banana onto the oatmeal. To cleanly and efficiently peel a banana, hold it with the stem pointing up and the other end (the flower end) resting flat on the countertop. Make a cut about half an inch from the flower end, leaving the bottom side of the peel intact. Make another cut halfway along the banana's length, again leaving a layer of peel intact. Now grasp one half in each hand and pull the stem end down towards the flower end so a strip of peel comes away from the latter half. Now it should be easy to unroll the peel from that half. Peel the other half in the most obvious way.
 - If the banana is resistant to being peeled in this way, it's either too ripe or not ripe enough. Bananas for oatmeal should be firm and buttery, not mushy. After a few tries you'll learn how to correlate appearance with optimal ripeness. Every banana brand seems to be a little bit different in this regard.
 - Eat.
+
+## Notes
+
+- Knudsen buttermilk is a bit too sour for my taste (or maybe I got a bad batch—sample size of one). Clover and Berkeley Farms are good.
