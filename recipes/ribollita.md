@@ -16,7 +16,7 @@ Serves 8.
 - large onion
 - 2 large celery stalks, chopped
 - 1 large unpeeled Yukon Gold potato, scrubbed, cut into 1/2-inch cubes
-- 1 small fennel bulb, trimmed, quartered trhough core, sliced crosswise
+- 1 small fennel bulb, trimmed, quartered through core, sliced crosswise
 - 1 large pinch of dried thyme
 - 1 small bunch black kale, cut crosswise into 1-inch ribbons (~ 6 cups)
 - 1 small bunch green chard, center stem removed, cut into 1-inch ribbons (~6 cups)
