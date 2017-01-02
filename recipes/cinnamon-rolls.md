@@ -23,8 +23,8 @@ Takes about 4 hours, partly 'cause I'm slow, but also because there's about 2:40
 - butter
 - cinnamon
 - brown sugar
-- pecans—maybe 1/2 to 3/4 cup?
-- raisins
+- 3 cups pecans
+- 1 1/2 cups golden raisins
 - optional egg wash:
   - 1 egg
   - 1/2 cup milk
@@ -70,6 +70,10 @@ After an hour of rising, the sponge will have developed gluten. It's important n
 
 ### Baking
 
-At this point you can refrigerate or freeze the rolls. If you freeze them, you'll need to let them thaw in the fridge for several hours before baking. If you refrigerate them, give them two hours to come to room temperature before baking.
+At this point you should refrigerate or freeze the rolls if you're not going to bake them immediately. If you freeze them, you'll need to let them thaw in the fridge for 8–24 hours before baking. Give refrigerated rolls three to four hours at room temperature to rise before baking.
 
-Bake in a steam oven at 350º for 30 minutes. If you don't have a steam oven, you can brush the tops of the rolls with egg wash (mix an egg with 1/2 cup of milk) for a glossy, crusty exterior.
+Bake in a steam oven at 350º for 35 minutes. If you don't have a steam oven, you can brush the tops of the rolls with egg wash (mix an egg with 1/2 cup of milk) and bake at 350º for 30 minutes.
+
+### Notes
+
+Amounts for pecans and raisins are approximate. We plan to adjust the amounts based on experimentation next year.
