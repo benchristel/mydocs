@@ -1,20 +1,28 @@
 # Lembas (Coimas)
 
-Source: <cite>[yclept](http://everything2.com/title/lembas)</cite>.
+Tolkien's Elvish languages aren't particularly rich in food vocabulary; we know words for "bread" and "meat" and not much else. The Etymologies of _The Lost Road_ yield at least one more interesting entry, though: _ferna_, the Quenya word for "beechnuts". This struck me as a pretty low-probability food word to have in one's lexicon, so I naturally began to speculate as to the possible significance of the beechnut in Middle-earth lore.
 
-Take a cup and a half of blanched almonds, and the same amount of flour, and grind the almonds and flour well together into a fine meal. Add a tablespoon of sugar and three of butter, a pinch of salt and three of ground cardamom. Cut the butter into the mixture. When it is fully incorporated, mix in half a cup of water a spoonful at a time to form dough. Knead a few times on a floured board, roll out to a finger's thickness, and cut into squares measuring a finger's length. Bake at 400°F for about 15-20 minutes, until the edges of the wafers are golden.
+In LOTR _lembas_ is described as being crisp, wafer-like, and unexpectedly delicious. I imagine something akin to macarons, which are made from almond flour. I wondered—could the Etymologies' reference to beechnuts point to a _lembas_ recipe that included tree nuts? Beechnuts might well be a staple of a forest-dwelling people, and lembas could plausibly be made of beechnuts, eggs, honey, and little else.
 
-To blanch raw almonds, drop them first into boiling water and then into cold. Dry them and rub the skins off. Let them dry thoroughly before using them in lembas.
+However, given the rarity of beechnuts in American grocery stores, I've had to stick to almonds for this recipe.
 
-## Notes
+## Ingredients
 
-My first time making this (2015-01-31), I made several mistakes.
+2 cups raw almonds
+1/2 cup sugar
+1/4 cup honey
+1 large egg
 
-1. I used salted butter.
-2. I baked the lembas in a convection oven set to 400°F. The actual temperature was probably closer to 450°F.
-3. I used almond flour instead of grinding my own; the resulting meal was possibly too coarse.
-4. I added only a quarter-cup of water. This was fine for dough consistency, but possibly a contributing factor to the burnination.
+## Preparation
 
-The end result was that the lembas came out burned and dry. Almond oil smokes at 420°F, so the taste was dominated by burned oil. Given that my oven is pretty bad at maintaining a constant temperature, I might try baking these at a lower set temperature to be on the safe side; probably 350F in a convection oven.
+### Act One: 12 hours ahead
 
-I want these to be bicuitier somehow. Some cornmeal, sesame seeds, or honey might not go amiss.
+1. Blanch the almonds by dropping them into boiling water for 60 seconds. When time's up, drain them immediately and run cold water over them. If the almonds boil too long they'll start to soften. Peel the skins off and let dry.
+2. Grind the almonds into a fine meal in a food processor
+3. Add egg, sugar and honey, and pulse until a cohesive dough forms.
+4. Refrigerate the dough for at least 12 hours.
+
+### Act Two
+
+Preheat oven to 350 degrees. Prepare a baking sheet with parchment paper. Roll dough into balls and smush them onto the baking sheet. Bake 8–10 minutes—_lembas_ should be golden-brown but still soft when removed from the oven.
+
