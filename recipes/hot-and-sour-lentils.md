@@ -6,7 +6,7 @@ Serves 2.
 
 - 1 cup rice
 - 1 cup green lentils
-- rice vinegar
+- aji mirin or rice vinegar
 - soy sauce
 - 1 egg
 
