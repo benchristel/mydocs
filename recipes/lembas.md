@@ -8,10 +8,10 @@ However, given the rarity of beechnuts in American grocery stores, I've had to s
 
 ## Ingredients
 
-2 cups raw almonds
-1/2 cup sugar
-1/4 cup honey
-1 large egg
+- 2 cups raw almonds
+- 1/2 cup sugar
+- 1/4 cup honey
+- 1 large egg
 
 ## Preparation
 
