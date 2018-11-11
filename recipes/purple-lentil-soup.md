@@ -16,7 +16,7 @@ meal.
 - 1 large purple sweet potato
 - 1 large zucchino
 - a bunch of swiss chard (it cooks down)
-- 10 or so leaves fresh rosemary
+- 10 or so leaves fresh lavender
 - 10 inches or so fresh oregano
 - 2 bay leaves
 - a splash of red wine vinegar
@@ -31,8 +31,8 @@ meal.
 2. After a couple minutes, add the lentils and water or
    stock, and bring to a boil.
 3. Add the sweet potato, cubed.
-4. Add the other seasonings: rosemary, oregano, bay,
-   vinegar, and wine. Chop the oregano and rosemary finely.
+4. Add the other seasonings: lavender, oregano, bay,
+   vinegar, and wine. Chop the oregano and lavender finely.
 5. When the lentils have about 15 minutes left to cook, add
    the zucchini.
 6. Separate the chard stems from the leaves. Dice and sauté
