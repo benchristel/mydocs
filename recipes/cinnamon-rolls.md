@@ -1,6 +1,6 @@
 # Cinnamon Rolls
 
-A Christmas tradition! Adapted from the Tassajara Bread Book. Serves 14.
+A Christmas tradition! Adapted from the Tassajara Bread Book. Serves 18. If you don't have 18 people coming over, great! You'll have leftovers for New Year's!
 
 Takes about 4 hours, partly 'cause I'm slow, but also because there's about 2:40 of rising and baking time.
 
@@ -63,17 +63,23 @@ After an hour of rising, the sponge will have developed gluten. It's important n
 3. Melt some butter (about a quarter cup?) and brush it onto the rectangle. Leave about an inch unbuttered at the far edge; this area will become the seam that prevents the rolls from unrolling.
 4. Sprinkle the buttered area of the dough with brown sugar, cinnamon, pecans, and raisins. The brown sugar and cinnamon should pretty much cover the whole surface; add the other ingredients to taste.
 5. Starting from the side closest to you, roll the dough up, pushing gently to ensure that the roll is tight. Extra hands help a lot here! When you get to the end (you left it unbuttered, right?) pinch it to seal the rolls.
-6. Cut the roll into 7 equal slices. (Why 7? Well, our pie pans are circular, and 7 circular rolls [pack nicely](https://en.wikipedia.org/wiki/Circle_packing) into a circular container.)
+6. Cut the roll into about 9 equal slices.
 7. Butter a pie pan. Sprinkle the bottom with chopped pecans. Spread a few spoonfuls of honey into the pan as well.
-8. Pack the rolls into the pan. Squish them down a bit if there are gaps between them; you want all that honey to end up stuck to bread!
+8. Pack the rolls into pans. I recommend the following pan strategy for a total of 18 rolls: two 9" pie pans with 7 rolls each (because 7 circles [pack nicely](https://en.wikipedia.org/wiki/Circle_packing) into a circular container) and a small square pan with 4 rolls. Squish the rolls down a bit if there are gaps between them; you want all that honey to end up stuck to bread!
 9. Repeat for the other half of the dough.
 
 ### Baking
 
 At this point you should refrigerate or freeze the rolls if you're not going to bake them immediately. If you freeze them, you'll need to let them thaw in the fridge for 8–24 hours before baking. Give refrigerated rolls three to four hours at room temperature to rise before baking.
 
+Line the bottom of your oven with foil, to catch honey drips.
+
 Bake in a steam oven at 350º for 35 minutes. If you don't have a steam oven, you can brush the tops of the rolls with egg wash (mix an egg with 1/2 cup of milk) and bake at 350º for 30 minutes.
+
+### Serving
+
+Serve by flipping the pan upside down onto a plate and whacking it until the rolls come loose.
 
 ### Notes
 
-Amounts for pecans and raisins are approximate. We plan to adjust the amounts based on experimentation next year.
+- Dec 25, 2018: We made two pans of 7 rolls each and they ended up kind of huge. They were slightly underdone after 35 minutes, and there were no gaps between the rolls in the pan so the expanding honey just overflowed into the oven. I have increased the recommended number of rolls from 14 to 18.
