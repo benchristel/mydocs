@@ -26,3 +26,12 @@ However, given the rarity of beechnuts in American grocery stores, I've had to s
 
 Preheat oven to 350 degrees. Prepare a baking sheet with parchment paper. Roll dough into balls and smush them onto the baking sheet. Bake 8–10 minutes—_lembas_ should be golden-brown but still soft when removed from the oven.
 
+## Notes
+
+Feb 22, 2019: Made this with store-bought almond meal, and it turned to glue after adding the honey. I added more
+almond meal to compensate—probably about 3 cups of almond meal, total. After a harrowing time getting the goop out of
+the food processor and some manual cutting-in of more meal, I was able to get it to a consistency where the dough was
+cohesive but not adhesive. When I put it in the food processor and turned it on, the dough quickly formed a ball.
+
+After 10 minutes of baking in a convection oven set to 340 F, they were not quite done. I think they should have been
+thinner (< 1/4"), and should have been scored on top to increase the surface area exposed to the air.
