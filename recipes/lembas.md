@@ -31,7 +31,9 @@ Preheat oven to 350 degrees. Prepare a baking sheet with parchment paper. Roll d
 Feb 22, 2019: Made this with store-bought almond meal, and it turned to glue after adding the honey. I added more
 almond meal to compensate—probably about 3 cups of almond meal, total. After a harrowing time getting the goop out of
 the food processor and some manual cutting-in of more meal, I was able to get it to a consistency where the dough was
-cohesive but not adhesive. When I put it in the food processor and turned it on, the dough quickly formed a ball.
+cohesive but not adhesive. When I put it in the food processor and turned it on, the dough quickly formed a ball. I
+feel this is a good heuristic for finding the right consistency: the blade should be clean and the surface of the dough
+should be smooth.
 
 After 10 minutes of baking in a convection oven set to 340 F, they were not quite done. I think they should have been
 thinner (< 1/4"), and should have been scored on top to increase the surface area exposed to the air.
