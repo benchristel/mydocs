@@ -34,3 +34,5 @@ Serves 10.
 ## Notes
 
 Jan 30, 2020: I tried adding more flour (wheat) to the above recipe to make a dough that I could roll out into wafers. It worked, but I wouldn't use wheat flour again. The wheat flavor was distractingly prominent even with only a quarter cup added. They were also slightly too sweet. I might cut the sugar back to 1/3 or 1/4 cup next time.
+
+One thing I'd like to try is baking these in a [shortbread pan like the one pictured here](https://www.kingarthurflour.com/blog/2015/11/29/snowflake-shortbread), although the recipe would probably have to be tweaked to make the dough properly flattenable. 
