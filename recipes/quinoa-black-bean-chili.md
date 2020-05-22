@@ -22,6 +22,7 @@ Serves 10
 - 28 oz can crushed tomatoes
 - 2 28 oz cans of black beans
 - 1 cup frozen corn
+- veggie sausages, cut up and sautéed.
 
 ## Procedure
 
@@ -31,6 +32,7 @@ Serves 10
 4. Add the beans, let them get warm.
 5. Add the corn, and turn off the heat once it's cooked.
 6. Add the quinoa to the chili.
+7. Turn off the heat and add the cooked sausage bits. Don't let them boil, or they'll get tough.
 
 ## Notes
 
