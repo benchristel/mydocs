@@ -7,7 +7,6 @@ Serves 10
 ## Ingredients
 
 - 1 cup raw quinoa
-- 1.5 cups water
 - 2 tbsp olive oil
 - 1 onion, chopped
 - 4 cloves garlic, chopped
@@ -26,13 +25,12 @@ Serves 10
 
 ## Procedure
 
-1. Cook the quinoa in the water. 
-2. Saute the onions, garlic, jalapeño, spices, and fresh veggies. 
-3. Add the tomatoes and simmer until the sweet potato is cooked through. 
-4. Add the beans, let them get warm.
-5. Add the corn, and turn off the heat once it's cooked.
-6. Add the quinoa to the chili.
-7. Turn off the heat and add the cooked sausage bits. Don't let them boil, or they'll get tough.
+1. In a large pot, saute the onions, garlic, jalapeño, spices, and fresh veggies. 
+1. Add the tomatoes and simmer until the sweet potato is cooked through. 
+1. Add the beans, let them get warm. Cover with water and bring to a boil.
+1. 15 minutes before serving, add the raw quinoa. Keep adding water to cover.
+1. Add the corn, and turn off the heat once it's warm.
+1. Add the cooked sausage bits. Don't let them boil, or they'll get tough.
 
 ## Notes
 
