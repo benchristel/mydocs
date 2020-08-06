@@ -1,6 +1,6 @@
 # Oatmeal and Coffee
 
-This is the ultimate first breakfast - simple, quick, and easy to chase down with second breakfast. I have made this hundreds of times and it is consistently delicious.
+This is the ultimate first breakfast - simple, quick, and easy to chase down with second breakfast. I have made this thousands of times and it is consistently delicious.
 
 ## Hardware
 
