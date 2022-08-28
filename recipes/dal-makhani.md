@@ -1,6 +1,6 @@
 # Dal Makhani
 
-Adapted from https://www.indianhealthyrecipes.com/dal-makhani-recipe/.
+Adapted from https://www.indianhealthyrecipes.com/dal-makhani-recipe/ and https://www.vegrecipesofindia.com/dal-makhani-restaurant-style-recipe/.
 
 ## Ingredients
 
@@ -20,7 +20,6 @@ Adapted from https://www.indianhealthyrecipes.com/dal-makhani-recipe/.
 - 1 stick of butter (4 oz)
 - optional veggies: chopped spinach or kale, carrots
 
-
 ## Procedure
 
 ### Thread 1
@@ -33,9 +32,9 @@ Adapted from https://www.indianhealthyrecipes.com/dal-makhani-recipe/.
 1. In a separate pan, saute the whole spices (cumin seed, cardamom, and bay) in a couple tablespoons of butter.
 2. Add finely chopped onion and cook until golden.
 3. Add ginger and garlic and cook for one minute.
-5. Add tomato puree, cayenne, and garam masala. Cook 3-5 minutes.
+4. Add tomato puree, cayenne, and garam masala. Cook 3-5 minutes.
 
 ### Thread#join
 
-7. Add tomato+spice mixture, the optional veggies, and kidney beans to the lentils. Simmer for an hour.
-8. Add cream, remaining butter, and fenugreek.
+1. Add tomato+spice mixture, the optional veggies, and kidney beans to the lentils. Simmer for an hour.
+2. Add cream, remaining butter, and fenugreek.
