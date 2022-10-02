@@ -19,6 +19,7 @@ Serves 10
 - 2 bell peppers, chopped
 - 28 oz can crushed tomatoes
 - 2 28 oz cans of black beans, or 1 lb dry, cooked
+- 1 bunch kale, chopped into spoonable pieces
 - 1 cup raw quinoa
 - 1 cup frozen corn
 - 1 lb veggie meat, cut up and sautéed. Impossible burger works well.
@@ -35,12 +36,13 @@ Serves 10
 
 ## Procedure
 
-1. In a large pot, saute the onions, garlic, jalapeño, spices, and fresh veggies. 
-1. Add the tomatoes and simmer until the sweet potato is cooked through. 
-1. Add the beans, let them get warm. Cover with water and bring to a boil.
-1. 15 minutes before serving, add the raw quinoa. Keep adding water to cover.
-1. Add the corn, and turn off the heat once it's warm.
-1. Add the cooked veggie meat bits to individual servings. Don't add them to the chili, or they'll be soggy leftover.
+1. In a large pot, saute the onions, garlic, jalapeño, spices, and sweet potato. 
+2. Add the tomatoes and simmer until the sweet potato is cooked through.
+3. Add the other veggies.
+4. Add the beans, let them get warm. Cover with water and bring to a boil.
+5. 15 minutes before serving, add the raw quinoa. Keep adding water to cover.
+6. Add the corn, and turn off the heat once it's warm.
+7. Add the cooked veggie meat bits to individual servings. Don't add them to the chili, or they'll be soggy leftover.
 
 ## Notes
 
