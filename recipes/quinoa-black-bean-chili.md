@@ -9,19 +9,29 @@ Serves 10
 - 2 tbsp olive oil
 - 1 onion, chopped
 - 4 cloves garlic, chopped
-- 1 jalapeño pepper, minced
-- 1 tsp chili powder
-- 1 tsp ancho chili powder
+- 3 jalapeño peppers, minced
+- 1 tbsp chili powder
+- 1 tbsp ancho chili powder
 - 1 tbsp cumin
 - 1 tsp oregano
 - 1 sweet potato, diced
 - 3-4 zucchini, diced
 - 2 bell peppers, chopped
 - 28 oz can crushed tomatoes
-- 2 28 oz cans of black beans
+- 2 28 oz cans of black beans, or 1 lb dry, cooked
 - 1 cup raw quinoa
 - 1 cup frozen corn
-- veggie sausages, cut up and sautéed.
+- 1 lb veggie meat, cut up and sautéed. Impossible burger works well.
+
+## Ideas for Toppings and Sides
+
+- Shredded pepper jack cheese
+- Chips
+- Sour cream
+- Pickled jalapeños
+- Avocado
+- Cilantro
+- Corn bread
 
 ## Procedure
 
@@ -30,7 +40,7 @@ Serves 10
 1. Add the beans, let them get warm. Cover with water and bring to a boil.
 1. 15 minutes before serving, add the raw quinoa. Keep adding water to cover.
 1. Add the corn, and turn off the heat once it's warm.
-1. Add the cooked sausage bits. Don't let them boil, or they'll get tough.
+1. Add the cooked veggie meat bits to individual servings. Don't add them to the chili, or they'll be soggy leftover.
 
 ## Notes
 
