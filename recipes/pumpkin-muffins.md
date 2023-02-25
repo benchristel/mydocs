@@ -13,7 +13,6 @@ My mother's recipe. Makes at least 12 medium-sized muffins, plus a small loaf.
 - 1 tsp cinnamon
 - 1/2 tsp nutmeg
 - 1/2 tsp ground clove
-- 1/2 tsp orange oil or zest
 
 ## Wet Ingredients
 
@@ -21,6 +20,7 @@ My mother's recipe. Makes at least 12 medium-sized muffins, plus a small loaf.
 - 15 oz canned pumpkin puree
 - 3/4 cup canola oil
 - 1/4 cup buttermilk or 1/2 cup nonfat plain yogurt
+- 1/2 tsp orange oil or zest
 
 The amounts here are forgiving: you can use 3 eggs instead of 4, or reduce the oil to 1/2 cup and add more buttermilk.
 
