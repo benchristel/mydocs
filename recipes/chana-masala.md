@@ -2,27 +2,29 @@
 
 ## Ingredients
 
-- 2 cups dried chickpeas
-- 1 1/2" piece of ginger root
-- 2 yellow onions
-- 6 cloves garlic (3 tbsp minced)
-- 1/3 cup sunflower seed oil or other neutral oil
-- 3 oz can tomato paste
-- 9 dried dates
-- 1 tsp cardamom
-- 4 tsp cumin
-- 1/4 tsp cayenne pepper
-- 1 tsp black pepper
-- 2 star anise (or 3/4 tsp ground fennel seed and 3/4 tsp ground anise seed)
+- 1 lb dried chickpeas
+- vegetable oil
+- 2 bay leaves
+- 2 1/2 inches cinnamon sticks
+- 5 whole cloves
+- 5 whole cardamom pods
+- 4 large red onions
+- 2–3 green chilis
+- 1 Tbsp chopped ginger
+- 1 Tbsp chopped garlic
+- 1 28oz can of diced tomatoes (or 24oz jar of tomato puree plus a small can of tomatoes)
+- 1/2 tsp turmeric
+- 1 tsp cayenne
+- 1 Tbsp garam masala
+- 5 tsp coriander
+- 1.5 tsp cumin
+- 1 Tbsp kasuri methi (dried fenugreek leaves)
 - 2 tsp salt
-- cilantro
-- yogurt
 
 ### Optional Veggies
 
-- Green beans
-- Sweet potato or carrot
-- 2 bell peppers
+- bell peppers
+- chard
 
 ## Procedure
 
@@ -32,18 +34,21 @@ Soak the chickpeas overnight.
 
 ### Act Two
 
-1. Drain chickpeas and cover in pot with 3x their volume in water. Add 3 slices of ginger. Boil and simmer uncovered for 1.5 hours or until chickpeas are tender, adding water if needed to keep them submerged.
-1. Steam veggies (except bell pepper) together for 6-7 minutes.
-1. Chop onions, garlic, ginger, bell peppers, dates.
-1. In a large pot, brown the onions in 1/3 cup oil. Add garlic and ginger and stir 2 more minutes.
-1. Add bell peppers, reduce heat to medium, stir 2-3 more minutes.
-1. Stir in tomato paste. Cook for 30 seconds.
-1. Add star anise, spices, salt, pepper, and chopped dates. Cook 1 minute.
-1. Add warm chickpeas, their cooking water, and the steamed veggies. Cover, boil, and simmer uncovered for 20-30 minutes until stew-like in consistency.
-1. Serve with rice or naan, garnished with cilantro and yogurt.
+### Thread 1
 
-## Notes
+1. Bring the soaked chickpeas to a boil and simmer until cooked, 60–90 minutes.
 
-If the saute stuff starts to stick to the pan, add some chickpea water.
+### Thread 2
 
-To substitute canned chickpeas, drain them and cover with boiling water. Let sit until the final stage.
+1. Saute the whole spices in oil.
+2. Add the onions and cook until golden.
+3. Add garlic and ginger and cook for about a minute.
+4. Add tomatoes and salt.
+5. Cook until reduced to a thick sauce.
+6. Add ground spices: cayenne, turmeric, garam masala, coriander, and cumin.
+
+### Thread#join
+
+1. Drain and add the cooked chickpeas. Reserve some of the cooking water to thin the sauce.
+2. Simmer 15 minutes.
+3. Crush the kasuri methi and add just before serving.
