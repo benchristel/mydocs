@@ -50,5 +50,6 @@ Soak the chickpeas overnight.
 ### Thread#join
 
 1. Drain and add the cooked chickpeas. Reserve some of the cooking water to thin the sauce.
-2. Simmer 15 minutes.
-3. Crush the kasuri methi and add just before serving.
+2. Add the optional veggies.
+3. Simmer 15 minutes.
+4. Crush the kasuri methi and add just before serving.
